@@ -1,0 +1,100 @@
+[gd_scene load_steps=6 format=3 uid="uid://qusroma600r8"]
+
+[ext_resource type="Script" path="res://Scripts/ScriptsMenus/confirmarcion_salir.gd" id="1_cgiq1"]
+[ext_resource type="Texture2D" uid="uid://c7r1j77y56wjc" path="res://Assets/Menus/Menu_victoria/menu_victoria_fondo.png" id="2_k28v4"]
+[ext_resource type="FontFile" uid="uid://ctddf6t7nx61x" path="res://Assets/Fuentes/minecraft-five-bold.otf" id="3_ed4n2"]
+[ext_resource type="Texture2D" uid="uid://d3eediqxuk54i" path="res://Assets/Menus/Menu_victoria/cerrar.png" id="8_0s3bg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pcmnb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="confirmarcionSalir" type="Control"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -980.0
+offset_bottom = -520.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cgiq1")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pcmnb")
+
+[node name="Fondo" type="Sprite2D" parent="Panel"]
+position = Vector2(151, 111)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("2_k28v4")
+
+[node name="Mensaje" type="RichTextLabel" parent="Panel"]
+clip_contents = false
+custom_minimum_size = Vector2(275, 10)
+layout_mode = 0
+offset_left = -10.0
+offset_top = 78.0
+offset_right = 340.0
+offset_bottom = 126.0
+scale = Vector2(1, 1.04)
+theme_override_colors/default_color = Color(0.741176, 0.560784, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/normal_font = ExtResource("3_ed4n2")
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "¿quieres salir del juego?"
+fit_content = true
+scroll_active = false
+tab_size = 1
+
+[node name="cerrar" type="TextureButton" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.023
+anchor_bottom = 0.031
+offset_left = 282.0
+offset_top = 57.0
+offset_right = 1195.1
+offset_bottom = 970.8
+scale = Vector2(0.015, 0.015)
+texture_normal = ExtResource("8_0s3bg")
+
+[node name="SI" type="Button" parent="Panel"]
+z_index = 2
+layout_mode = 0
+offset_left = 72.0
+offset_top = 94.0
+offset_right = 111.0
+offset_bottom = 136.0
+scale = Vector2(1.04143, 1.15607)
+theme_override_colors/font_hover_color = Color(0.455403, 1.07693e-06, 2.16588e-07, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ed4n2")
+text = "SI"
+flat = true
+
+[node name="NO" type="Button" parent="Panel"]
+z_index = 2
+layout_mode = 0
+offset_left = 165.0
+offset_top = 99.0
+offset_right = 209.0
+offset_bottom = 141.0
+theme_override_colors/font_hover_color = Color(3.46541e-06, 0, 0.80283, 1)
+theme_override_colors/font_color = Color(0, 0.32283, 0.597442, 1)
+theme_override_fonts/font = ExtResource("3_ed4n2")
+text = "NO"
+flat = true
+
+[connection signal="pressed" from="Panel/cerrar" to="." method="_on_cerrar_pressed"]
+[connection signal="pressed" from="Panel/SI" to="." method="_on_si_pressed"]
+[connection signal="pressed" from="Panel/NO" to="." method="_on_no_pressed"]

@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://cg3bhbxssow3h"]
+
+[ext_resource type="Script" path="res://Scripts/ScriptsPanelControl/navegacion.gd" id="1_bnv4o"]
+[ext_resource type="Texture2D" uid="uid://371ag2a1xoc3" path="res://Assets/PanelDeControl/navegacion/navegacion_fondo.png" id="1_dj5jf"]
+[ext_resource type="Texture2D" uid="uid://bipsjdrol3sdu" path="res://Assets/PanelDeControl/navegacion/brujula.png" id="2_5i3f3"]
+[ext_resource type="Texture2D" uid="uid://bm8jeo0gqeas4" path="res://Assets/PanelDeControl/navegacion/flecha.png" id="4_7h78h"]
+[ext_resource type="Texture2D" uid="uid://d0avlxnhjhdyb" path="res://Assets/PanelDeControl/navegacion/navegacion_siguiente_color_base.png" id="5_ajkb2"]
+
+[node name="Navegacion" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1142.0
+offset_bottom = -552.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bnv4o")
+metadata/_edit_lock_ = true
+
+[node name="NavegacionFondo" type="Sprite2D" parent="."]
+position = Vector2(69, 84)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_dj5jf")
+metadata/_edit_lock_ = true
+
+[node name="Brujula" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(99, 98)
+layout_mode = 0
+offset_left = 18.0
+offset_top = 17.0
+offset_right = 117.0
+offset_bottom = 115.0
+scale = Vector2(0.7, 0.7)
+
+[node name="Brujula" type="Sprite2D" parent="Brujula"]
+position = Vector2(67, 63)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_5i3f3")
+
+[node name="Flecha" type="Sprite2D" parent="Brujula"]
+position = Vector2(67, 63)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_7h78h")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(111, 16)
+layout_mode = 0
+offset_left = 14.0
+offset_top = 7.0
+offset_right = 125.0
+offset_bottom = 23.0
+
+[node name="NavegacionSiguienteColorBase" type="Sprite2D" parent="PanelContainer"]
+position = Vector2(55.5, 8)
+scale = Vector2(0.115, 0.115)
+texture = ExtResource("5_ajkb2")

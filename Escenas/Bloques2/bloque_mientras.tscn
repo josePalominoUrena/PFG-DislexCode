@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://76lemiuy60de"]
+
+[ext_resource type="Script" path="res://Scripts/ScriptsBloques2/bloque_mientras.gd" id="1_8xy6g"]
+[ext_resource type="PackedScene" uid="uid://xuy171vfnlbs" path="res://Escenas/Bloques2/bloque_plantilla.tscn" id="1_d5cmf"]
+[ext_resource type="Texture2D" uid="uid://bmh2xn62ap3me" path="res://Assets/Bloques/mientras x1.png" id="2_4ksni"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2r64v"]
+resource_local_to_scene = true
+size = Vector2(205, 18.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_flm48"]
+resource_local_to_scene = true
+size = Vector2(161.136, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_srig8"]
+resource_local_to_scene = true
+size = Vector2(103.687, 40)
+
+[node name="BloqueMientras" instance=ExtResource("1_d5cmf")]
+custom_minimum_size = Vector2(205, 62)
+offset_bottom = -648.0
+script = ExtResource("1_8xy6g")
+tipo = 1
+nombre = "bloque_mientras"
+
+[node name="Fondo" parent="." index="0"]
+custom_minimum_size = Vector2(205, 62)
+offset_bottom = 70.0
+texture = ExtResource("2_4ksni")
+region_rect = Rect2(0, 0, 205, 99)
+patch_margin_left = 116
+patch_margin_top = 43
+patch_margin_right = 80
+patch_margin_bottom = 27
+
+[node name="ArgumentoContainer" parent="." index="1"]
+offset_left = 88.0
+offset_top = 4.0
+offset_right = 148.0
+offset_bottom = 34.0
+
+[node name="CodigoInteriorContainer" parent="." index="2"]
+custom_minimum_size = Vector2(19, 1)
+offset_left = 12.0
+offset_right = 204.0
+offset_bottom = 37.0
+
+[node name="BloquesCodigo" parent="CodigoInteriorContainer" index="0"]
+custom_minimum_size = Vector2(192, 0)
+
+[node name="Siguiente" parent="." index="3"]
+offset_left = 0.0
+offset_top = 70.0
+offset_right = 127.0
+offset_bottom = 91.0
+
+[node name="ConexionSiguiente" parent="." index="4"]
+position = Vector2(1, 61)
+
+[node name="AreaSiguiente" parent="ConexionSiguiente" index="0"]
+position = Vector2(102, 2.875)
+shape = SubResource("RectangleShape2D_2r64v")
+debug_color = Color(0.641067, 0.522352, 0.122645, 0.42)
+
+[node name="ConexionArgumento" parent="." index="5"]
+visible = true
+
+[node name="AreaArgumento" parent="ConexionArgumento" index="0"]
+position = Vector2(160.432, 16)
+shape = SubResource("RectangleShape2D_flm48")
+
+[node name="ConexionCodigoInterior" parent="." index="6"]
+visible = true
+
+[node name="AreaCodigoInterior" parent="ConexionCodigoInterior" index="0"]
+position = Vector2(28.5, 45)
+scale = Vector2(1.24413, 0.65)
+shape = SubResource("RectangleShape2D_srig8")

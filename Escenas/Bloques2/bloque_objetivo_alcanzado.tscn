@@ -1,0 +1,90 @@
+[gd_scene load_steps=10 format=3 uid="uid://dh87a74yu7txu"]
+
+[ext_resource type="PackedScene" uid="uid://xuy171vfnlbs" path="res://Escenas/Bloques2/bloque_plantilla.tscn" id="1_35pcu"]
+[ext_resource type="Script" path="res://Scripts/ScriptsBloques2/bloque_objetivo_alcanzado.gd" id="2_pw18o"]
+[ext_resource type="Texture2D" uid="uid://bq8d8hyeu5nwk" path="res://Assets/Bloques/objetivo_alcanzado x1.png" id="3_uwfxy"]
+[ext_resource type="FontFile" uid="uid://ctddf6t7nx61x" path="res://Assets/Fuentes/minecraft-five-bold.otf" id="4_0rurf"]
+[ext_resource type="Texture2D" uid="uid://dajcxeq2r8bfd" path="res://Assets/Objetivos/pan.png" id="4_yujdx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r56vo"]
+resource_local_to_scene = true
+size = Vector2(205, 34.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01krl"]
+resource_local_to_scene = true
+size = Vector2(90.2715, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eu5ep"]
+size = Vector2(83.25, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_crmaw"]
+resource_local_to_scene = true
+size = Vector2(83.25, 25.75)
+
+[node name="BloqueObjetivoAlcanzado" instance=ExtResource("1_35pcu")]
+custom_minimum_size = Vector2(242, 28)
+offset_right = -1038.0
+offset_bottom = -692.0
+script = ExtResource("2_pw18o")
+fuente = "minecraft-five-bold.otf"
+tamano_fuente = 8
+color_texto = Color(1, 1, 1, 1)
+tipo = 3
+nombre = "bloque_objetivo_alcanzado"
+
+[node name="Fondo" parent="." index="0"]
+custom_minimum_size = Vector2(242, 28)
+offset_right = 242.0
+offset_bottom = 28.0
+texture = ExtResource("3_uwfxy")
+region_rect = Rect2(0, 0, 238, 28)
+patch_margin_left = 114
+patch_margin_right = 128
+patch_margin_bottom = 28
+
+[node name="ArgumentoContainer" parent="." index="1"]
+custom_minimum_size = Vector2(0, 28)
+offset_left = 103.0
+offset_right = 103.0
+offset_bottom = 28.0
+
+[node name="Label" type="Label" parent="ArgumentoContainer" index="0"]
+visible = false
+layout_mode = 2
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("4_0rurf")
+text = "prueba"
+
+[node name="TextureRect" type="TextureRect" parent="ArgumentoContainer" index="1"]
+visible = false
+layout_mode = 2
+mouse_filter = 0
+texture = ExtResource("4_yujdx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CodigoInteriorContainer" parent="." index="2"]
+visible = false
+
+[node name="ConexionSiguiente" parent="." index="4"]
+visible = false
+
+[node name="AreaSiguiente" parent="ConexionSiguiente" index="0"]
+shape = SubResource("RectangleShape2D_r56vo")
+
+[node name="ConexionArgumento" parent="." index="5"]
+visible = true
+position = Vector2(124, 11)
+
+[node name="AreaArgumento" parent="ConexionArgumento" index="0"]
+visible = false
+position = Vector2(-6.94287, 1)
+shape = SubResource("RectangleShape2D_01krl")
+
+[node name="AreaClickArgumento" type="CollisionShape2D" parent="ConexionArgumento" index="1"]
+position = Vector2(17.375, 2)
+shape = SubResource("RectangleShape2D_eu5ep")
+debug_color = Color(0.361275, 0.617278, 1.92523e-07, 0.42)
+
+[node name="AreaCodigoInterior" parent="ConexionCodigoInterior" index="0"]
+shape = SubResource("RectangleShape2D_crmaw")

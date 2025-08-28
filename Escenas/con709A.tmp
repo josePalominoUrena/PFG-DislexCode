@@ -1,0 +1,109 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbxsvv6cyb5qj"]
+
+[ext_resource type="Script" path="res://Scripts/controlDeNivel.gd" id="1_gnj10"]
+[ext_resource type="Texture2D" uid="uid://qo1v1m6jwp3n" path="res://Prueba de menus.png" id="2_oalf2"]
+[ext_resource type="PackedScene" uid="uid://c5lisvp802l51" path="res://Escenas/tablero_tile_map.tscn" id="2_v8jna"]
+[ext_resource type="Texture2D" uid="uid://dx8whj63gw7kw" path="res://Prueba de zona construcción.png" id="3_x5yre"]
+[ext_resource type="PackedScene" uid="uid://dhxi12gfisoy" path="res://Escenas/Robot.tscn" id="4_ii8yr"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_gnj10")
+
+[node name="Columna Izq" type="Panel" parent="."]
+layout_mode = 1
+offset_right = 450.0
+offset_bottom = 720.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ContenedorTablero" type="PanelContainer" parent="Columna Izq"]
+layout_mode = 2
+offset_right = 450.0
+offset_bottom = 450.0
+
+[node name="ColorDeFondo" type="ColorRect" parent="Columna Izq/ContenedorTablero"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TableroTileMap" parent="Columna Izq/ContenedorTablero" instance=ExtResource("2_v8jna")]
+
+[node name="Robot" parent="Columna Izq/ContenedorTablero/TableroTileMap" instance=ExtResource("4_ii8yr")]
+
+[node name="ContenedorBotones" type="PanelContainer" parent="Columna Izq"]
+layout_mode = 2
+offset_left = 3.0
+offset_top = 454.0
+offset_right = 453.0
+offset_bottom = 504.0
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Columna Izq/ContenedorBotones"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Start" type="Button" parent="Columna Izq/ContenedorBotones/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"FlatButton"
+text = "Start
+"
+
+[node name="Restart" type="Button" parent="Columna Izq/ContenedorBotones/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"FlatButton"
+text = "Restart"
+
+[node name="Velocidad" type="HSlider" parent="Columna Izq/ContenedorBotones/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="ContenedorInfoNivel" type="PanelContainer" parent="Columna Izq"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 492.0
+offset_right = 452.0
+offset_bottom = 702.0
+scale = Vector2(1, 1.07435)
+
+[node name="InfoNivel" type="RichTextLabel" parent="Columna Izq/ContenedorInfoNivel"]
+layout_mode = 2
+
+[node name="Menú bloques" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 453.0
+offset_right = 803.0
+offset_bottom = 720.0
+
+[node name="PanelContainer" type="PanelContainer" parent="Menú bloques"]
+layout_mode = 0
+offset_right = 350.0
+offset_bottom = 720.0
+
+[node name="PruebaDeMenus" type="Sprite2D" parent="Menú bloques/PanelContainer"]
+position = Vector2(179, 361)
+scale = Vector2(1.66976, 1.13616)
+texture = ExtResource("2_oalf2")
+
+[node name="Zona construcción" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 803.0
+offset_top = 1.0
+offset_right = 1283.0
+offset_bottom = 721.0
+
+[node name="PanelContainer" type="PanelContainer" parent="Zona construcción"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 480.0
+offset_bottom = 722.0
+
+[node name="PruebaDeZonaConstrucción" type="Sprite2D" parent="Zona construcción/PanelContainer"]
+position = Vector2(244, 358)
+scale = Vector2(1.46061, 1.11838)
+texture = ExtResource("3_x5yre")
+
+[connection signal="button_down" from="Columna Izq/ContenedorBotones/HBoxContainer/Restart" to="." method="_on_restart_button_down"]

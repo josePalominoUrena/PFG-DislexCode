@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://bkq3ukqed4vn7"]
+
+[ext_resource type="Script" path="res://Scripts/ScriptsBloques2/bloque_avanzar.gd" id="1_eass5"]
+[ext_resource type="PackedScene" uid="uid://xuy171vfnlbs" path="res://Escenas/Bloques2/bloque_plantilla.tscn" id="1_ptu8f"]
+[ext_resource type="Texture2D" uid="uid://c0i12o3xh6rw7" path="res://Assets/Bloques/avanzar x10.png" id="3_dbixu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0h6db"]
+resource_local_to_scene = true
+size = Vector2(112, 30.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kivcp"]
+resource_local_to_scene = true
+size = Vector2(90.2715, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4768d"]
+resource_local_to_scene = true
+size = Vector2(83.25, 25.75)
+
+[node name="BloqueAvanzar" instance=ExtResource("1_ptu8f")]
+custom_minimum_size = Vector2(205, 35)
+offset_bottom = 35.0
+script = ExtResource("1_eass5")
+tipo = 2
+nombre = "bloque_avanzar"
+
+[node name="Fondo" parent="." index="0"]
+offset_right = 2050.0
+offset_bottom = 420.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_dbixu")
+region_rect = Rect2(0, 0, 2050, 420)
+patch_margin_left = 1306
+patch_margin_right = 506
+metadata/_edit_lock_ = true
+
+[node name="ArgumentoContainer" parent="." index="1"]
+visible = false
+
+[node name="CodigoInteriorContainer" parent="." index="2"]
+visible = false
+
+[node name="Siguiente" parent="." index="3"]
+offset_left = 0.0
+offset_right = 13.0
+
+[node name="AreaSiguiente" parent="ConexionSiguiente" index="0"]
+position = Vector2(36, -11.125)
+shape = SubResource("RectangleShape2D_0h6db")
+metadata/_edit_lock_ = true
+
+[node name="AreaArgumento" parent="ConexionArgumento" index="0"]
+shape = SubResource("RectangleShape2D_kivcp")
+
+[node name="AreaCodigoInterior" parent="ConexionCodigoInterior" index="0"]
+shape = SubResource("RectangleShape2D_4768d")

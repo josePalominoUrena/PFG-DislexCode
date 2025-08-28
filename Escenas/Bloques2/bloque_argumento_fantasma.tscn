@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcfw7dqc0wle8"]
+
+[ext_resource type="PackedScene" uid="uid://xuy171vfnlbs" path="res://Escenas/Bloques2/bloque_plantilla.tscn" id="1_hiphs"]
+[ext_resource type="Texture2D" uid="uid://qay8jvad04ps" path="res://Assets/Bloques/argumento fantasma.png" id="2_un8q4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pa7cl"]
+resource_local_to_scene = true
+size = Vector2(205, 34.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lq84w"]
+resource_local_to_scene = true
+size = Vector2(90.2715, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_asp83"]
+resource_local_to_scene = true
+size = Vector2(83.25, 25.75)
+
+[node name="BloqueArgumentoFantasma" instance=ExtResource("1_hiphs")]
+tipo = 3
+nombre = "bloque_argumento_fantasma"
+
+[node name="Fondo" parent="." index="0"]
+custom_minimum_size = Vector2(205, 28)
+offset_right = 2050.0
+offset_bottom = 280.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_un8q4")
+region_rect = Rect2(0, 0, 2380, 280)
+patch_margin_left = 114
+patch_margin_right = 128
+patch_margin_bottom = 28
+
+[node name="ArgumentoContainer" parent="." index="1"]
+visible = false
+
+[node name="CodigoInteriorContainer" parent="." index="2"]
+visible = false
+
+[node name="ConexionSiguiente" parent="." index="4"]
+visible = false
+
+[node name="AreaSiguiente" parent="ConexionSiguiente" index="0"]
+shape = SubResource("RectangleShape2D_pa7cl")
+
+[node name="AreaArgumento" parent="ConexionArgumento" index="0"]
+shape = SubResource("RectangleShape2D_lq84w")
+
+[node name="AreaCodigoInterior" parent="ConexionCodigoInterior" index="0"]
+shape = SubResource("RectangleShape2D_asp83")

@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://c57fvbaqrg6n7"]
+
+[ext_resource type="PackedScene" uid="uid://xuy171vfnlbs" path="res://Escenas/Bloques2/bloque_plantilla.tscn" id="1_w6lrf"]
+[ext_resource type="Script" path="res://Scripts/ScriptsBloques2/bloque_siguiente_color.gd" id="2_xh6jy"]
+[ext_resource type="Texture2D" uid="uid://c5twbq852vfdi" path="res://Assets/Bloques/siguiente_color_base.png" id="3_mkslt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6k65c"]
+size = Vector2(47, 25)
+
+[node name="BloqueSiguienteColor" instance=ExtResource("1_w6lrf")]
+custom_minimum_size = Vector2(238, 28)
+offset_right = -1042.0
+offset_bottom = -692.0
+script = ExtResource("2_xh6jy")
+tipo = 3
+nombre = "bloque_siguiente_color"
+
+[node name="Fondo" parent="." index="0"]
+custom_minimum_size = Vector2(219, 28)
+offset_right = 238.0
+offset_bottom = 28.0
+texture = ExtResource("3_mkslt")
+region_rect = Rect2(0, 0, 238, 28)
+
+[node name="CodigoInteriorContainer" parent="." index="2"]
+visible = false
+
+[node name="Siguiente" parent="." index="3"]
+visible = false
+
+[node name="ConexionSiguiente" parent="." index="4"]
+visible = false
+position = Vector2(18, 37)
+
+[node name="ConexionArgumento" parent="." index="5"]
+visible = true
+position = Vector2(168, 11)
+
+[node name="AreaArgumento" parent="ConexionArgumento" index="0"]
+visible = false
+position = Vector2(44, 7)
+
+[node name="AreaClickArgumento" type="CollisionShape2D" parent="ConexionArgumento" index="1"]
+position = Vector2(24.5, 1.5)
+shape = SubResource("RectangleShape2D_6k65c")
+debug_color = Color(0.361275, 0.617278, 1.92523e-07, 0.42)

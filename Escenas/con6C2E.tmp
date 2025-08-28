@@ -1,0 +1,141 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbxsvv6cyb5qj"]
+
+[ext_resource type="Script" path="res://Scripts/controlDeNivel.gd" id="1_gnj10"]
+[ext_resource type="Texture2D" uid="uid://i6md3crsqn5c" path="res://Assets/Logos/logo_dislexcode.png" id="2_brl6c"]
+[ext_resource type="PackedScene" uid="uid://c5lisvp802l51" path="res://Escenas/Tablero/tablero_tile_map.tscn" id="2_v8jna"]
+[ext_resource type="PackedScene" uid="uid://dg08a3vfkevkj" path="res://Escenas/Bloques/ZonaConstrucción.tscn" id="3_3jmmx"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_gnj10")
+
+[node name="Encabezado" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1380.0
+offset_bottom = 50.0
+scale = Vector2(1.00359, 1)
+
+[node name="Titulo Juego" type="PanelContainer" parent="Encabezado"]
+layout_mode = 0
+offset_right = 450.0
+offset_bottom = 50.0
+
+[node name="TextureRect" type="TextureRect" parent="Encabezado/Titulo Juego"]
+layout_mode = 2
+texture = ExtResource("2_brl6c")
+
+[node name="SeleccionarNivel" type="OptionButton" parent="Encabezado"]
+layout_mode = 0
+offset_left = 459.0
+offset_top = 9.0
+offset_right = 589.0
+offset_bottom = 40.0
+item_count = 4
+popup/item_0/text = "Nivel 0"
+popup/item_1/text = "Nivel 1"
+popup/item_1/id = 1
+popup/item_2/text = "Nivel 2"
+popup/item_2/id = 2
+popup/item_3/text = "Nivel 3"
+popup/item_3/id = 3
+
+[node name="SeleccionarRobot" type="OptionButton" parent="Encabezado"]
+texture_filter = 3
+layout_mode = 0
+offset_left = 600.0
+offset_top = 9.0
+offset_right = 730.0
+offset_bottom = 40.0
+item_count = 3
+popup/item_0/text = "Robot 0"
+popup/item_1/text = "Robot 1"
+popup/item_1/id = 1
+popup/item_2/text = "Robot 2"
+popup/item_2/id = 2
+
+[node name="Columna Izq" type="Panel" parent="."]
+layout_mode = 1
+offset_top = 50.0
+offset_right = 450.0
+offset_bottom = 720.0
+scale = Vector2(1.0011, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ContenedorTablero" type="PanelContainer" parent="Columna Izq"]
+layout_mode = 2
+offset_right = 450.0
+offset_bottom = 450.0
+
+[node name="TableroTileMap" parent="Columna Izq/ContenedorTablero" instance=ExtResource("2_v8jna")]
+
+[node name="ContenedorBotones" type="PanelContainer" parent="Columna Izq"]
+layout_mode = 2
+offset_top = 451.0
+offset_right = 450.0
+offset_bottom = 501.0
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Columna Izq/ContenedorBotones"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Start" type="Button" parent="Columna Izq/ContenedorBotones/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"FlatButton"
+text = "Start
+"
+
+[node name="Restart" type="Button" parent="Columna Izq/ContenedorBotones/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"FlatButton"
+text = "Restart"
+
+[node name="Velocidad" type="HSlider" parent="Columna Izq/ContenedorBotones/HBoxContainer"]
+custom_minimum_size = Vector2(60, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="ContenedorInfoNivel" type="PanelContainer" parent="Columna Izq"]
+layout_mode = 0
+offset_top = 500.0
+offset_right = 450.0
+offset_bottom = 653.0
+scale = Vector2(1, 1.07435)
+
+[node name="InfoNivel" type="RichTextLabel" parent="Columna Izq/ContenedorInfoNivel"]
+layout_mode = 2
+
+[node name="Columna derecha" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.003125
+anchor_top = 0.00138889
+anchor_right = 0.003125
+anchor_bottom = 0.00138889
+offset_left = 451.0
+offset_top = 50.0
+offset_right = 1381.0
+offset_bottom = 720.0
+scale = Vector2(1.0011, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ZonaConstrucción" parent="Columna derecha" instance=ExtResource("3_3jmmx")]
+offset_left = -2.0
+offset_right = -2.0
+scale = Vector2(0.998901, 1)
+
+[connection signal="item_selected" from="Encabezado/SeleccionarNivel" to="." method="_on_seleccionar_nivel_item_selected"]
+[connection signal="item_selected" from="Encabezado/SeleccionarRobot" to="." method="_on_seleccionar_robot_item_selected"]
+[connection signal="pressed" from="Columna Izq/ContenedorBotones/HBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="button_down" from="Columna Izq/ContenedorBotones/HBoxContainer/Restart" to="." method="_on_restart_button_down"]
+[connection signal="drag_ended" from="Columna Izq/ContenedorBotones/HBoxContainer/Velocidad" to="." method="_on_velocidad_drag_ended"]

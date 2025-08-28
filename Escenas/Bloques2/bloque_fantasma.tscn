@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bha60pit2eis"]
+
+[ext_resource type="PackedScene" uid="uid://xuy171vfnlbs" path="res://Escenas/Bloques2/bloque_plantilla.tscn" id="1_2kjal"]
+[ext_resource type="Texture2D" uid="uid://d1cuulsiwjs05" path="res://Assets/Bloques/fantasma.png" id="2_2tlc3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_coneg"]
+resource_local_to_scene = true
+size = Vector2(205, 34.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_huebj"]
+resource_local_to_scene = true
+size = Vector2(90.2715, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wi6o7"]
+resource_local_to_scene = true
+size = Vector2(83.25, 25.75)
+
+[node name="BloqueFantasma" instance=ExtResource("1_2kjal")]
+custom_minimum_size = Vector2(205, 32)
+offset_bottom = -688.0
+tipo = 2
+nombre = "bloque_fantasma"
+
+[node name="Fondo" parent="." index="0"]
+offset_right = 2050.0
+offset_bottom = 420.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_2tlc3")
+region_rect = Rect2(0, 0, 2050, 420)
+patch_margin_left = 1320
+patch_margin_right = 460
+
+[node name="ConexionSiguiente" parent="." index="4"]
+visible = false
+
+[node name="AreaSiguiente" parent="ConexionSiguiente" index="0"]
+shape = SubResource("RectangleShape2D_coneg")
+
+[node name="AreaArgumento" parent="ConexionArgumento" index="0"]
+shape = SubResource("RectangleShape2D_huebj")
+
+[node name="AreaCodigoInterior" parent="ConexionCodigoInterior" index="0"]
+shape = SubResource("RectangleShape2D_wi6o7")

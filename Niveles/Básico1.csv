@@ -1,0 +1,25 @@
+﻿Tipo;tutorial: bloque girar;;
+Nivel;1;;
+TamCuadricula;3;;
+PosRobot;0;0;
+NumObjetivos;2;;
+texto;me;2;0
+texto;ta;2;2
+SoluciónOrdenada;1;;
+NumeroDeSoluciones;2;;
+me;;;
+ta;;;
+BloquesUsables;2;;
+avanzar;;;
+girar;;;
+ColoresSeguros;2;;
+Azul;;;
+Verde;;;
+ColoresCasillas;0;;
+Verde;Azul;Azul;
+Rojo;Rojo;Azul;
+Rojo;Rojo;Azul;
+Descripcion;;;
+El robot cambia de dirección sin moverse. Puedes GIRAR a la derecha o a la izquierda. GIRA para buscar camino seguro. Primero GIRA. luego AVANZA. Así evitas casillas peligrosas.;;;
+Descripcion_corta;;;
+Usa GIRAR para evitar las casillas ROJAS y llegar a la meta;;;

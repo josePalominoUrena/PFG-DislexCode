@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://rg2alsw5kq"]
+
+[ext_resource type="PackedScene" uid="uid://xuy171vfnlbs" path="res://Escenas/Bloques2/bloque_plantilla.tscn" id="1_pdrbq"]
+[ext_resource type="Script" path="res://Scripts/ScriptsBloques2/bloque_inicio.gd" id="1_rtk61"]
+[ext_resource type="Texture2D" uid="uid://6dc4be0y4lex" path="res://Assets/Bloques/inicio x10.png" id="3_djvrq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_04npp"]
+resource_local_to_scene = true
+size = Vector2(205, 34.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1uic"]
+resource_local_to_scene = true
+size = Vector2(90.2715, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0y40i"]
+resource_local_to_scene = true
+size = Vector2(95.625, 57.875)
+
+[node name="BloqueInicio" instance=ExtResource("1_pdrbq")]
+script = ExtResource("1_rtk61")
+nombre = "bloque_inicio"
+
+[node name="Fondo" parent="." index="0"]
+offset_right = 2050.0
+offset_bottom = 420.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_djvrq")
+region_rect = Rect2(0, 0, 2050, 420)
+patch_margin_left = 1270
+patch_margin_right = 650
+
+[node name="ArgumentoContainer" parent="." index="1"]
+visible = false
+
+[node name="CodigoInteriorContainer" parent="." index="2"]
+offset_left = 0.0
+offset_right = 205.0
+offset_bottom = 36.0
+
+[node name="Siguiente" parent="." index="3"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 36.0
+offset_right = 201.0
+offset_bottom = 43.0
+
+[node name="ConexionSiguiente" parent="." index="4"]
+visible = false
+
+[node name="AreaSiguiente" parent="ConexionSiguiente" index="0"]
+position = Vector2(92, 4)
+shape = SubResource("RectangleShape2D_04npp")
+debug_color = Color(0, 0.595, 0.7, 0.623529)
+
+[node name="AreaArgumento" parent="ConexionArgumento" index="0"]
+shape = SubResource("RectangleShape2D_t1uic")
+
+[node name="ConexionCodigoInterior" parent="." index="6"]
+visible = true
+position = Vector2(98, 40)
+
+[node name="AreaCodigoInterior" parent="ConexionCodigoInterior" index="0"]
+position = Vector2(-63.8125, -10.9375)
+shape = SubResource("RectangleShape2D_0y40i")

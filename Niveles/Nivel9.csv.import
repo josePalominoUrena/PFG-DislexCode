@@ -1,0 +1,15 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://c6vifxuwe2wvc"
+valid=false
+
+[deps]
+
+source_file="res://Niveles/Nivel9.csv"
+
+[params]
+
+compress=true
+delimiter=0

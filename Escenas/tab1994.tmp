@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5lisvp802l51"]
+
+[ext_resource type="Texture2D" uid="uid://08u8qu612bek" path="res://Assets/Tiles/tile set.png" id="1_2fr5p"]
+[ext_resource type="Script" path="res://Scripts/ScriptsTablero/tablero_tile_map.gd" id="1_kk878"]
+[ext_resource type="Script" path="res://Scripts/ScriptsTablero/tile_map_dinámico.gd" id="2_gi2rg"]
+[ext_resource type="PackedScene" uid="uid://dhxi12gfisoy" path="res://Escenas/Robot.tscn" id="4_5gqcx"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_66v8o"]
+texture = ExtResource("1_2fr5p")
+texture_region_size = Vector2i(90, 90)
+use_texture_padding = false
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_0temj"]
+tile_size = Vector2i(90, 90)
+sources/0 = SubResource("TileSetAtlasSource_66v8o")
+
+[node name="TableroTileMap" type="Node2D"]
+script = ExtResource("1_kk878")
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(2, 2)
+tile_set = SubResource("TileSet_0temj")
+rendering_quadrant_size = 1
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 131072, 0, 4, 131072, 0, 131076, 131072, 0, 262148, 131072, 0, 262146, 131072, 0, 2, 131072, 0, 262144, 131072, 0, 131072, 131072, 0, 65536, 196608, 0, 1, 196608, 0, 65538, 196608, 0, 3, 196608, 0, 65540, 196608, 0, 131075, 196608, 0, 196610, 196608, 0, 131073, 196608, 0, 196608, 196608, 0, 262145, 196608, 0, 196612, 196608, 0, 262147, 196608, 0, 196611, 262144, 0, 131074, 262144, 0, 65539, 262144, 0, 65537, 262144, 0, 196609, 262144, 0)
+script = ExtResource("2_gi2rg")
+
+[node name="Robot" parent="." instance=ExtResource("4_5gqcx")]
+position = Vector2(2, 5)
+velocidad_movimiento = 2.0

@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjrfj3g38v1ji"]
+
+[ext_resource type="Texture2D" uid="uid://bid8yigdnkh1w" path="res://Assets/PanelDeControl/pantalla/pantalla.png" id="1_li8qf"]
+[ext_resource type="Script" path="res://Scripts/ScriptsPanelControl/pantalla.gd" id="1_oqd6q"]
+[ext_resource type="FontFile" uid="uid://dbtmwww0aewgg" path="res://Assets/Fuentes/VT323-Regular.ttf" id="3_wt2ue"]
+[ext_resource type="FontFile" uid="uid://cwt0x4x348mw1" path="res://Assets/Fuentes/x12y16pxSolidLinker.ttf" id="4_ta1im"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sfhch"]
+
+[node name="Pantalla" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oqd6q")
+metadata/_edit_lock_ = true
+
+[node name="Pantalla" type="Sprite2D" parent="."]
+position = Vector2(154, 84)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_li8qf")
+metadata/_edit_lock_ = true
+
+[node name="PanelTitulo" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(250, 20)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 16.0
+offset_right = 292.0
+offset_bottom = 46.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sfhch")
+metadata/_edit_lock_ = true
+
+[node name="titulo" type="RichTextLabel" parent="PanelTitulo"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_wt2ue")
+theme_override_fonts/mono_font = ExtResource("3_wt2ue")
+theme_override_fonts/italics_font = ExtResource("3_wt2ue")
+theme_override_fonts/bold_italics_font = ExtResource("3_wt2ue")
+theme_override_fonts/bold_font = ExtResource("4_ta1im")
+
+[node name="PanelEnunciado" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 2
+offset_left = 20.0
+offset_top = 46.0
+offset_right = 292.0
+offset_bottom = 126.0
+metadata/_edit_lock_ = true
+
+[node name="enunciado" type="RichTextLabel" parent="PanelEnunciado"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_wt2ue")
+theme_override_fonts/mono_font = ExtResource("3_wt2ue")
+theme_override_fonts/italics_font = ExtResource("3_wt2ue")
+theme_override_fonts/bold_italics_font = ExtResource("3_wt2ue")
+theme_override_fonts/bold_font = ExtResource("3_wt2ue")
+
+[node name="PanelSalida" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(250, 20)
+layout_mode = 2
+offset_left = 20.0
+offset_top = 126.0
+offset_right = 292.0
+offset_bottom = 146.0
+
+[node name="salida" type="RichTextLabel" parent="PanelSalida"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_wt2ue")
+theme_override_fonts/mono_font = ExtResource("3_wt2ue")
+theme_override_fonts/italics_font = ExtResource("3_wt2ue")
+theme_override_fonts/bold_italics_font = ExtResource("3_wt2ue")
+theme_override_fonts/bold_font = ExtResource("3_wt2ue")

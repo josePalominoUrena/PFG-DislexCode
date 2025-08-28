@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlwnrjvnsv3e2"]
+
+[ext_resource type="Texture2D" uid="uid://cg4duotpcrovk" path="res://Assets/PanelDeControl/PanelDeControl_fondo.png" id="1_4o6dr"]
+[ext_resource type="Script" path="res://Scripts/ScriptsPanelControl/panel_de_control.gd" id="1_jxiom"]
+[ext_resource type="PackedScene" uid="uid://csviywvmynaq" path="res://Escenas/PanelDeControl/boton_empezar.tscn" id="2_owulj"]
+[ext_resource type="PackedScene" uid="uid://cg3bhbxssow3h" path="res://Escenas/PanelDeControl/navegacion.tscn" id="4_hdvq5"]
+[ext_resource type="PackedScene" uid="uid://bjrfj3g38v1ji" path="res://Escenas/PanelDeControl/pantalla.tscn" id="5_0361s"]
+[ext_resource type="PackedScene" uid="uid://qpn33pf4wgd4" path="res://Escenas/PanelDeControl/objetivos_marco.tscn" id="6_4v51i"]
+
+[node name="PanelDeControl" type="Control"]
+custom_minimum_size = Vector2(450, 220)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -830.0
+offset_bottom = -500.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jxiom")
+
+[node name="PanelDeControlFondo" type="Sprite2D" parent="."]
+position = Vector2(225, 110)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_4o6dr")
+metadata/_edit_lock_ = true
+
+[node name="PanelBoton" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 139.0
+offset_bottom = 49.0
+metadata/_edit_lock_ = true
+
+[node name="BotonEmpezar" parent="PanelBoton" instance=ExtResource("2_owulj")]
+layout_mode = 2
+
+[node name="PanelNavegacion" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 1.0
+offset_top = 51.0
+offset_right = 139.0
+offset_bottom = 219.0
+metadata/_edit_lock_ = true
+
+[node name="Navegacion" parent="PanelNavegacion" instance=ExtResource("4_hdvq5")]
+layout_mode = 2
+
+[node name="PanelPantalla" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(308, 168)
+layout_mode = 0
+offset_left = 141.0
+offset_top = 51.0
+offset_right = 449.0
+offset_bottom = 219.0
+
+[node name="Pantalla" parent="PanelPantalla" instance=ExtResource("5_0361s")]
+layout_mode = 2
+
+[node name="PanelObjetivosAlcanzados" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(308, 48)
+layout_mode = 0
+offset_left = 141.0
+offset_top = 1.0
+offset_right = 449.0
+offset_bottom = 49.0
+metadata/_edit_lock_ = true
+
+[node name="ObjetivosMarco" parent="PanelObjetivosAlcanzados" instance=ExtResource("6_4v51i")]
+layout_mode = 2
+
+[connection signal="empezar" from="PanelBoton/BotonEmpezar" to="." method="_on_boton_empezar_empezar"]
+[connection signal="reinciar" from="PanelBoton/BotonEmpezar" to="." method="_on_boton_empezar_reinciar"]

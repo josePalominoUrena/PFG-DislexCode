@@ -1,0 +1,26 @@
+﻿Tipo;Tutorial: Mientras con girar;;;;
+Nivel;4;;;;
+TamCuadricula;6;;;;
+PosRobot;0;5;;;
+NumObjetivos;1;;;;
+texto;Meta;5;0;;
+SoluciónOrdenada;0;;;;
+NumeroDeSoluciones;1;;;;
+Meta;;;;;
+BloquesUsables;4;;;;
+mientras;;;;;
+avanzar;;;;;
+girar;;;;;
+objetivo_alcanzado;;;;;
+ColoresSeguros;2;;;;
+Verde;;;;;
+Azul;;;;;
+ColoresCasillas;0;;;;
+Rojo;Rojo;Rojo;Rojo;Rojo;Azul
+Rojo;Rojo;Rojo;Rojo;Verde;Verde
+Rojo;Rojo;Rojo;Azul;Azul;Rojo
+Rojo;Rojo;Verde;Verde;Rojo;Rojo
+Rojo;Azul;Azul;Rojo;Rojo;Rojo
+Verde;Verde;Rojo;Rojo;Rojo;Rojo
+Descripcion;;;;;
+Mientras el robot no haya alcanzado la Meta, debe subir hasta ella;;;;;

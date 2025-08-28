@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://b54dlakg0pf88"]
+
+[ext_resource type="Texture2D" uid="uid://d4k6vt5842oqw" path="res://Assets/Bloques/mientras x10.png" id="1_6dd1n"]
+[ext_resource type="Script" path="res://Scripts/ScriptsBloques/bloque_mientras.gd" id="1_6y6l2"]
+
+[node name="BloqueMientras" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 201.0
+offset_bottom = 81.0
+scale = Vector2(1.00665, 1.00531)
+script = ExtResource("1_6y6l2")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = 0.993394
+offset_right = 2000.99
+offset_bottom = 742.0
+scale = Vector2(0.1, 0.109)
+texture = ExtResource("1_6dd1n")
+region_rect = Rect2(0, 0, 2050.06, 1002.82)
+patch_margin_left = 1001
+patch_margin_top = 438
+patch_margin_right = 658
+patch_margin_bottom = 304
+
+[node name="CuerpoMientras" type="PanelContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 12.0
+offset_right = 50.0
+offset_bottom = 40.0
+scale = Vector2(4.95806, 1.3859)
+
+[node name="Argumento" type="PanelContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 98.346
+offset_top = 4.97359
+offset_right = 138.346
+offset_bottom = 44.9736
+scale = Vector2(0.980085, 0.781343)
+
+[node name="ConexionSiguiente" type="PanelContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 2.98018
+offset_top = 65.6514
+offset_right = 42.9802
+offset_bottom = 105.651
+scale = Vector2(4.89835, 0.544354)
+
+[connection signal="mouse_entered" from="CuerpoMientras" to="." method="_on_cuerpo_mientras_mouse_entered"]
+[connection signal="mouse_exited" from="CuerpoMientras" to="." method="_on_cuerpo_mientras_mouse_exited"]
+[connection signal="mouse_entered" from="Argumento" to="." method="_on_argumento_mouse_entered"]
+[connection signal="mouse_exited" from="Argumento" to="." method="_on_argumento_mouse_exited"]
+[connection signal="mouse_entered" from="ConexionSiguiente" to="." method="_on_conexion_siguiente_mouse_entered"]
+[connection signal="mouse_exited" from="ConexionSiguiente" to="." method="_on_conexion_siguiente_mouse_exited"]

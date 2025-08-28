@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://b54dlakg0pf88"]
+
+[ext_resource type="Script" path="res://Scripts/ScriptsBloques/bloque_mientras.gd" id="1_retsx"]
+[ext_resource type="Texture2D" uid="uid://d4k6vt5842oqw" path="res://Assets/Bloques/mientras x10.png" id="2_vj2vm"]
+
+[node name="BloqueMientras" type="Node2D"]
+scale = Vector2(1.00665, 1.00531)
+script = ExtResource("1_retsx")
+tipo = null
+permite_conexion_arriba = null
+permite_conexion_abajo = null
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = 0.993395
+offset_right = 2000.99
+offset_bottom = 742.0
+scale = Vector2(0.1, 0.109)
+texture = ExtResource("2_vj2vm")
+region_rect = Rect2(0, 0, 2050.06, 1002.82)
+patch_margin_left = 1001
+patch_margin_top = 438
+patch_margin_right = 658
+patch_margin_bottom = 304

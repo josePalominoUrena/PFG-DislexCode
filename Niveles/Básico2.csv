@@ -1,0 +1,26 @@
+﻿Tipo;Tutorial: Casillas no seguras;;;
+Nivel;2;;;
+TamCuadricula;5;;;
+PosRobot;1;1;;
+NumObjetivos;1;;;
+texto;Meta;3;1;
+SoluciónOrdenada;0;;;
+NumeroDeSoluciones;1;;;
+Meta;;;;
+BloquesUsables;2;;;
+avanzar;;;;
+girar;;;;
+ColoresSeguros;3;;;
+Blanco;;;;
+Azul;;;;
+Verde;;;;
+ColoresCasillas;;;;
+Rojo;Rojo;Rojo;Rojo;Rojo
+Rojo;Blanco;Rojo;Blanco;Rojo
+Rojo;Blanco;Blanco;Blanco;Rojo
+Rojo;Rojo;Rojo;Rojo;Rojo
+Rojo;Rojo;Rojo;Rojo;Rojo
+Descripcion;;;;
+Algunas casillas son peligrosas. No las pises. Mira el color antes de AVANZAR. Planea tu camino por casillas seguras. Si ves peligro delante GIRA y busca otra ruta. ROJO = PELIGRO;;;;
+Descripcion_corta;;;;
+GIRA para evitar las casillas peligrosas;;;;

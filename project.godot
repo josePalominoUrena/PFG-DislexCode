@@ -1,0 +1,55 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Dislexcode"
+run/main_scene="res://Escenas/control.tscn"
+config/features=PackedStringArray("4.3", "Mobile")
+config/icon="res://icono_juego.png"
+config/windows_native_icon="res://icono_juego.png"
+
+[compression]
+
+formats/lossless_compression/force_png=true
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/mode=3
+window/stretch/mode="canvas_items"
+window/stretch/aspect="ignore"
+window/vsync/vsync_mode=0
+window/windows_native_icon="res://icono_juego.png"
+window/icon="res://icono_juego.png"
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "blue",
+"res://Clases/": "orange",
+"res://Ejecutables/": "red",
+"res://Escenas/": "green",
+"res://Niveles/": "pink",
+"res://Scripts/": "purple"
+}
+
+[gui]
+
+theme/default_font_antialiasing=0
+theme/default_font_hinting=2
+theme/default_font_subpixel_positioning=0
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+textures/lossless_compression/force_png=true
+textures/dynamic_fonts/use_oversampling=true

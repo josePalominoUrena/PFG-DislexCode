@@ -1,0 +1,601 @@
+[gd_scene load_steps=14 format=3 uid="uid://c8p8pftqy1pmv"]
+
+[ext_resource type="Texture2D" uid="uid://dc802vnbvuca6" path="res://Assets/Menus/libro/libro_abierto.png" id="1_1wjwa"]
+[ext_resource type="Script" path="res://Scripts/ScriptsMenus/glosario.gd" id="1_i1tst"]
+[ext_resource type="Texture2D" uid="uid://d3eediqxuk54i" path="res://Assets/Menus/Menu_victoria/cerrar.png" id="3_ijl0g"]
+[ext_resource type="Texture2D" uid="uid://0hiex16trtvw" path="res://Assets/Menus/Menu_victoria/siguiente_nivel.png" id="4_73vdx"]
+[ext_resource type="Texture2D" uid="uid://bt5bsvxx3hkc3" path="res://Assets/Menus/libro/pag1.png" id="5_voju3"]
+[ext_resource type="Texture2D" uid="uid://d35hwflsg4hfy" path="res://Assets/Menus/libro/pag2.png" id="6_m3d5d"]
+[ext_resource type="Texture2D" uid="uid://bhvpbjssdygr0" path="res://Assets/Menus/libro/pag3.png" id="7_8dlgq"]
+[ext_resource type="Texture2D" uid="uid://k42h6ljx1omi" path="res://Assets/Menus/libro/pag4.png" id="8_tso3g"]
+[ext_resource type="Texture2D" uid="uid://38jk4ckajrxn" path="res://Assets/Menus/libro/pag5.png" id="9_2d4ll"]
+[ext_resource type="Texture2D" uid="uid://bsbh0h655tab6" path="res://Assets/Menus/libro/pag6.png" id="10_er16d"]
+[ext_resource type="Texture2D" uid="uid://c5tskgsej7in2" path="res://Assets/Menus/libro/pag7.png" id="11_085q3"]
+[ext_resource type="Texture2D" uid="uid://dwg1fkepdk22y" path="res://Assets/Menus/libro/pag8.png" id="12_kvvpw"]
+[ext_resource type="Texture2D" uid="uid://cbl3ferkpdwok" path="res://Assets/Menus/libro/pag9.png" id="13_gwhoi"]
+
+[node name="Glosario" type="Control" node_paths=PackedStringArray("paginas")]
+custom_minimum_size = Vector2(800, 500)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = -466.0
+offset_bottom = -221.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i1tst")
+paginas = [NodePath("Arrastrar"), NodePath("Robot"), NodePath("Avanzar"), NodePath("Robot_dirección"), NodePath("Girar"), NodePath("Casillas"), NodePath("Mientras"), NodePath("Objetivo_alcanzado"), NodePath("Siguiente_color")]
+metadata/_edit_lock_ = true
+
+[node name="LibroAbierto" type="Sprite2D" parent="."]
+position = Vector2(404, 247)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_1wjwa")
+metadata/_edit_lock_ = true
+
+[node name="cerrar" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.023
+anchor_bottom = 0.031
+offset_left = 698.0
+offset_top = 13.0
+offset_right = 1609.6
+offset_bottom = 929.9
+scale = Vector2(0.03, 0.03)
+texture_normal = ExtResource("3_ijl0g")
+metadata/_edit_lock_ = true
+
+[node name="SiguientePagina" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(90, 60)
+layout_mode = 0
+offset_left = 751.0
+offset_top = 206.0
+offset_right = 1201.0
+offset_bottom = 656.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("4_73vdx")
+metadata/_edit_lock_ = true
+
+[node name="AnteriorPagina" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(90, 60)
+layout_mode = 0
+offset_left = -33.0
+offset_top = 207.0
+offset_right = 417.0
+offset_bottom = 657.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("4_73vdx")
+flip_h = true
+metadata/_edit_lock_ = true
+
+[node name="Arrastrar" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 53.0
+offset_top = 43.0
+offset_right = 453.0
+offset_bottom = 423.0
+scale = Vector2(1.757, 1)
+
+[node name="izquierda" type="PanelContainer" parent="Arrastrar"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 3.41491
+offset_top = 2.0
+offset_right = 193.415
+offset_bottom = 382.0
+
+[node name="Pag1" type="Sprite2D" parent="Arrastrar/izquierda"]
+position = Vector2(95.0484, 310)
+scale = Vector2(0.1, 0.2)
+texture = ExtResource("5_voju3")
+
+[node name="derecha" type="PanelContainer" parent="Arrastrar"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 207.171
+offset_top = 11.0
+offset_right = 397.171
+offset_bottom = 391.0
+
+[node name="explicacion" type="RichTextLabel" parent="Arrastrar/derecha"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 15
+bbcode_enabled = true
+text = "Arrastra un bloque sobre otro para unirlos. 
+
+El orden importa: los bloques de arriba se hacen primero
+
+1.Pulsa el bloque con el ratón.
+
+2.Mantén pulsado y muévelo.
+
+3.Suelta encima o debajo de otro bloque hasta que encaje."
+
+[node name="Robot" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 53.0
+offset_top = 43.0
+offset_right = 453.0
+offset_bottom = 423.0
+scale = Vector2(1.757, 1)
+
+[node name="izquierda" type="PanelContainer" parent="Robot"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 3.41491
+offset_top = 2.0
+offset_right = 193.415
+offset_bottom = 382.0
+
+[node name="Pag1" type="Sprite2D" parent="Robot/izquierda"]
+position = Vector2(92.7718, 264)
+scale = Vector2(0.1, 0.17)
+texture = ExtResource("6_m3d5d")
+
+[node name="derecha" type="PanelContainer" parent="Robot"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 207.171
+offset_top = 11.0
+offset_right = 397.171
+offset_bottom = 391.0
+
+[node name="explicacion" type="RichTextLabel" parent="Robot/derecha"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "El Robot será tu ayudante.
+
+Se moverá por el tablero siguiendo tus órdenes.
+
+Usa bloques para dar una orden.
+
+Usa la palanca para cambiar su velocidad.
+
+"
+
+[node name="Avanzar" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 53.0
+offset_top = 43.0
+offset_right = 453.0
+offset_bottom = 423.0
+scale = Vector2(1.757, 1)
+
+[node name="izquierda" type="PanelContainer" parent="Avanzar"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 3.41491
+offset_top = 2.0
+offset_right = 193.415
+offset_bottom = 382.0
+
+[node name="Pag1" type="Sprite2D" parent="Avanzar/izquierda"]
+position = Vector2(85.3728, 248)
+scale = Vector2(0.1, 0.17)
+texture = ExtResource("8_tso3g")
+
+[node name="derecha" type="PanelContainer" parent="Avanzar"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 207.171
+offset_top = 11.0
+offset_right = 397.171
+offset_bottom = 391.0
+
+[node name="explicacion" type="RichTextLabel" parent="Avanzar/derecha"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = "El bloque AVANZAR  hace que el robot dé un paso hacia donde está mirando. 
+
+Úsalo para pasar a la siguiente casilla.
+
+Puedes encajar varios AVANZAR"
+
+[node name="Robot_dirección" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 53.0
+offset_top = 43.0
+offset_right = 453.0
+offset_bottom = 423.0
+scale = Vector2(1.757, 1)
+
+[node name="izquierda" type="PanelContainer" parent="Robot_dirección"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 3.41491
+offset_top = 2.0
+offset_right = 193.415
+offset_bottom = 382.0
+
+[node name="Pag1" type="Sprite2D" parent="Robot_dirección/izquierda"]
+position = Vector2(91.6335, 172)
+scale = Vector2(0.0618371, 0.114901)
+texture = ExtResource("7_8dlgq")
+
+[node name="derecha" type="PanelContainer" parent="Robot_dirección"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 207.171
+offset_top = 11.0
+offset_right = 397.171
+offset_bottom = 391.0
+
+[node name="explicacion" type="RichTextLabel" parent="Robot_dirección/derecha"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 15
+bbcode_enabled = true
+text = "El robot siempre mirará hacia una dirección.
+
+Cuando avanze lo hará hacia donde mire.
+
+Cambia la dirección usando  GIRAR"
+
+[node name="Girar" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 53.0
+offset_top = 43.0
+offset_right = 453.0
+offset_bottom = 423.0
+scale = Vector2(1.757, 1)
+
+[node name="izquierda" type="PanelContainer" parent="Girar"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 3.41491
+offset_top = 2.0
+offset_right = 193.415
+offset_bottom = 382.0
+
+[node name="Pag1" type="Sprite2D" parent="Girar/izquierda"]
+position = Vector2(101.309, 221)
+scale = Vector2(0.0844433, 0.131345)
+texture = ExtResource("9_2d4ll")
+
+[node name="derecha" type="PanelContainer" parent="Girar"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 207.171
+offset_top = 11.0
+offset_right = 397.171
+offset_bottom = 391.0
+
+[node name="explicacion" type="RichTextLabel" parent="Girar/derecha"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+bbcode_enabled = true
+text = "El bloque GIRAR hace que el robot cambie de dirección sin moverse. 
+
+Úsalo para mirar a la derecha o a la izquierda antes de AVANZAR. 
+
+Primero  GIRA si hay peligro delante; después AVANZA  con seguridad"
+
+[node name="Casillas" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 53.0
+offset_top = 43.0
+offset_right = 453.0
+offset_bottom = 423.0
+scale = Vector2(1.757, 1)
+
+[node name="izquierda" type="PanelContainer" parent="Casillas"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 3.41491
+offset_top = 2.0
+offset_right = 193.415
+offset_bottom = 382.0
+
+[node name="Pag1" type="Sprite2D" parent="Casillas/izquierda"]
+position = Vector2(101.309, 221)
+scale = Vector2(0.0844433, 0.131345)
+texture = ExtResource("10_er16d")
+
+[node name="derecha" type="PanelContainer" parent="Casillas"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 207.171
+offset_top = 11.0
+offset_right = 397.171
+offset_bottom = 391.0
+
+[node name="explicacion" type="RichTextLabel" parent="Casillas/derecha"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = "Hay dos tipos de casillas:
+
++[color=dark_red]Casillas peligrosas[/color], si el robot las pisa, pierde.
+
++[color=dark_green]Casillas seguras[/color], siguelas para llegar a los objetivos"
+
+[node name="Mientras" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 53.0
+offset_top = 43.0
+offset_right = 453.0
+offset_bottom = 423.0
+scale = Vector2(1.757, 1)
+
+[node name="izquierda" type="PanelContainer" parent="Mientras"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -7.96813
+offset_top = 2.0
+offset_right = 182.032
+offset_bottom = 382.0
+
+[node name="Pag1" type="Sprite2D" parent="Mientras/izquierda"]
+position = Vector2(106.721, 303.805)
+scale = Vector2(0.102998, 0.194313)
+texture = ExtResource("11_085q3")
+
+[node name="derecha" type="PanelContainer" parent="Mientras"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 207.171
+offset_top = 11.0
+offset_right = 397.171
+offset_bottom = 391.0
+
+[node name="explicacion" type="RichTextLabel" parent="Mientras/derecha"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "MIENTRAS significa: 
+“repite esto siempre que la condición se cumpla”
+
+Por ejemplo: mientras el robot no haya llegado a la meta, seguir avanzando.
+
+MIENTRAS [OBJETIVO ALCANZADO] 
+	AVANZAR"
+
+[node name="Objetivo_alcanzado" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 53.0
+offset_top = 43.0
+offset_right = 453.0
+offset_bottom = 423.0
+scale = Vector2(1.757, 1)
+
+[node name="izquierda" type="PanelContainer" parent="Objetivo_alcanzado"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -21.6278
+offset_top = -29.0
+offset_right = 168.372
+offset_bottom = 351.0
+
+[node name="Pag1" type="Sprite2D" parent="Objetivo_alcanzado/izquierda"]
+position = Vector2(114.4, 251)
+scale = Vector2(0.0721183, 0.146683)
+texture = ExtResource("12_kvvpw")
+
+[node name="derecha" type="PanelContainer" parent="Objetivo_alcanzado"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 207.171
+offset_top = 11.0
+offset_right = 397.171
+offset_bottom = 391.0
+
+[node name="explicacion" type="RichTextLabel" parent="Objetivo_alcanzado/derecha"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "OBJETIVO ALCANZADO se introduce a la derecha de los bloques MIENTRAS, SI y SI NO.
+
+Si el robot NO ha llegado al objetivo -> 
+[color=dark_green]se cumple[/color]
+
+Si el robot ha llegado al objetivo -> 
+[color=dark_red]no se cumple[/color]"
+
+[node name="Siguiente_color" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 53.0
+offset_top = 43.0
+offset_right = 453.0
+offset_bottom = 423.0
+scale = Vector2(1.757, 1)
+
+[node name="izquierda" type="PanelContainer" parent="Siguiente_color"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 2.84576
+offset_top = -50.0
+offset_right = 192.846
+offset_bottom = 330.0
+
+[node name="Pag1" type="Sprite2D" parent="Siguiente_color/izquierda"]
+position = Vector2(97.7774, 336.5)
+scale = Vector2(0.0935837, 0.177105)
+texture = ExtResource("13_gwhoi")
+
+[node name="derecha" type="PanelContainer" parent="Siguiente_color"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 207.171
+offset_top = 11.0
+offset_right = 397.171
+offset_bottom = 391.0
+
+[node name="explicacion" type="RichTextLabel" parent="Siguiente_color/derecha"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "SIGUIENTE COLOR se introduce a la derecha de los bloques MIENTRAS, SI y SI NO.
+
+Si donde mira el robot es del color -> 
+[color=dark_green]se cumple[/color]
+
+Si donde mira el robot NO es del color  -> 
+[color=dark_red]no se cumple[/color]"
+
+[node name="Bucles_anidados" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 53.0
+offset_top = 43.0
+offset_right = 453.0
+offset_bottom = 423.0
+scale = Vector2(1.757, 1)
+
+[node name="izquierda" type="PanelContainer" parent="Bucles_anidados"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -7.96813
+offset_top = 2.0
+offset_right = 182.032
+offset_bottom = 382.0
+
+[node name="Pag1" type="Sprite2D" parent="Bucles_anidados/izquierda"]
+position = Vector2(106.721, 303.805)
+scale = Vector2(0.102998, 0.194313)
+texture = ExtResource("11_085q3")
+
+[node name="derecha" type="PanelContainer" parent="Bucles_anidados"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 207.171
+offset_top = 11.0
+offset_right = 397.171
+offset_bottom = 391.0
+
+[node name="explicacion" type="RichTextLabel" parent="Bucles_anidados/derecha"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "MIENTRAS significa: 
+“repite esto siempre que la condición se cumpla”
+
+Por ejemplo: mientras el robot no haya llegado a la meta, seguir avanzando.
+
+MIENTRAS [OBJETIVO ALCANZADO] 
+	AVANZAR"
+
+[node name="Si" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 53.0
+offset_top = 43.0
+offset_right = 453.0
+offset_bottom = 423.0
+scale = Vector2(1.757, 1)
+
+[node name="izquierda" type="PanelContainer" parent="Si"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -7.96813
+offset_top = 2.0
+offset_right = 182.032
+offset_bottom = 382.0
+
+[node name="Pag1" type="Sprite2D" parent="Si/izquierda"]
+position = Vector2(106.721, 303.805)
+scale = Vector2(0.102998, 0.194313)
+texture = ExtResource("11_085q3")
+
+[node name="derecha" type="PanelContainer" parent="Si"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 207.171
+offset_top = 11.0
+offset_right = 397.171
+offset_bottom = 391.0
+
+[node name="explicacion" type="RichTextLabel" parent="Si/derecha"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "MIENTRAS significa: 
+“repite esto siempre que la condición se cumpla”
+
+Por ejemplo: mientras el robot no haya llegado a la meta, seguir avanzando.
+
+MIENTRAS [OBJETIVO ALCANZADO] 
+	AVANZAR"
+
+[node name="Si_no" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 53.0
+offset_top = 43.0
+offset_right = 453.0
+offset_bottom = 423.0
+scale = Vector2(1.757, 1)
+
+[node name="izquierda" type="PanelContainer" parent="Si_no"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -7.96813
+offset_top = 2.0
+offset_right = 182.032
+offset_bottom = 382.0
+
+[node name="Pag1" type="Sprite2D" parent="Si_no/izquierda"]
+position = Vector2(106.721, 303.805)
+scale = Vector2(0.102998, 0.194313)
+texture = ExtResource("11_085q3")
+
+[node name="derecha" type="PanelContainer" parent="Si_no"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 207.171
+offset_top = 11.0
+offset_right = 397.171
+offset_bottom = 391.0
+
+[node name="explicacion" type="RichTextLabel" parent="Si_no/derecha"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "MIENTRAS significa: 
+“repite esto siempre que la condición se cumpla”
+
+Por ejemplo: mientras el robot no haya llegado a la meta, seguir avanzando.
+
+MIENTRAS [OBJETIVO ALCANZADO] 
+	AVANZAR"
+
+[connection signal="pressed" from="cerrar" to="." method="_on_cerrar_pressed"]
+[connection signal="pressed" from="SiguientePagina" to="." method="_on_siguiente_pagina_pressed"]
+[connection signal="pressed" from="AnteriorPagina" to="." method="_on_anterior_pagina_pressed"]

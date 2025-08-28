@@ -1,0 +1,35 @@
+﻿Tipo;Tutorial: Bloque Si;;;;;
+Nivel;7;;;;;
+TamCuadricula;7;;;;;
+PosRobot;1;1;;;;
+NumObjetivos;3;;;;;
+texto;Meta1;5;1;;;
+texto;Meta2;5;5;;;
+texto;Meta3;1;5;;;
+SoluciónOrdenada;0;;;;;
+NumeroDeSoluciones;3;;;;;
+Meta1;;;;;;
+Meta2;;;;;;
+Meta3;;;;;;
+BloquesUsables;6;;;;;
+mientras;;;;;;
+si;;;;;;
+girar;;;;;;
+avanzar;;;;;;
+objetivo_alcanzado;;;;;;
+siguiente_color;;;;;;
+ColoresSeguros;2;;;;;
+Verde;;;;;;
+Azul;;;;;;
+ColoresCasillas;;;;;;
+Rojo;Rojo;Rojo;Rojo;Rojo;Rojo;Rojo
+Rojo;Azul;Verde;Azul;Verde;Azul;Rojo
+Rojo;Verde;Rojo;Rojo;Rojo;Verde;Rojo
+Rojo;Azul;Rojo;Rojo;Rojo;Azul;Rojo
+Rojo;Verde;Rojo;Rojo;Rojo;Verde;Rojo
+Rojo;Azul;Verde;Azul;Verde;Azul;Rojo
+Rojo;Rojo;Rojo;Rojo;Rojo;Rojo;Rojo
+Descripcion;;;;;;
+SI la condición es verdad haces la acción. Úsalo para decidir: MIENTRAS el camino sea seguro avanza. SI llegas a un camino no seguro cambia de dirección. Evita el rojo y alcanza la meta.;;;;;;
+Descripcion_corta;;;;;;
+Si es verdad actúa.;;;;;;

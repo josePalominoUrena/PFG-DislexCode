@@ -1,0 +1,60 @@
+[gd_scene load_steps=12 format=3 uid="uid://c5lisvp802l51"]
+
+[ext_resource type="Texture2D" uid="uid://08u8qu612bek" path="res://Assets/Tiles/tile set.png" id="1_2fr5p"]
+[ext_resource type="Script" path="res://Scripts/ScriptsTablero/tablero.gd" id="1_kk878"]
+[ext_resource type="Script" path="res://Scripts/ScriptsTablero/tile_map_dinámico.gd" id="2_gi2rg"]
+[ext_resource type="Texture2D" uid="uid://etyicj1oxds2" path="res://Assets/Tiles/tile_Set_nature.png" id="3_m76ta"]
+[ext_resource type="PackedScene" uid="uid://dhxi12gfisoy" path="res://Escenas/Tablero/Robot.tscn" id="4_5gqcx"]
+[ext_resource type="Texture2D" uid="uid://cxrvxfp7yyj8v" path="res://Assets/Tiles/tile_set_pipes.png" id="4_pknhs"]
+[ext_resource type="PackedScene" uid="uid://damba08i0fgn8" path="res://Escenas/Tablero/ObjetivoNode.tscn" id="4_x7skf"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_66v8o"]
+texture = ExtResource("1_2fr5p")
+texture_region_size = Vector2i(90, 90)
+use_texture_padding = false
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i1wru"]
+texture = ExtResource("3_m76ta")
+texture_region_size = Vector2i(90, 90)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g3a3l"]
+texture = ExtResource("4_pknhs")
+texture_region_size = Vector2i(90, 90)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_0temj"]
+tile_size = Vector2i(90, 90)
+sources/0 = SubResource("TileSetAtlasSource_66v8o")
+sources/1 = SubResource("TileSetAtlasSource_i1wru")
+sources/2 = SubResource("TileSetAtlasSource_g3a3l")
+
+[node name="TableroTileMap" type="Node2D"]
+script = ExtResource("1_kk878")
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 5
+position = Vector2(2, 2)
+tile_set = SubResource("TileSet_0temj")
+rendering_quadrant_size = 1
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 4, 0, 0, 131076, 0, 0, 262148, 0, 0, 262146, 0, 0, 2, 0, 0, 262144, 0, 0, 131072, 0, 0, 65536, 0, 0, 1, 0, 0, 65538, 65536, 0, 3, 0, 0, 65540, 0, 0, 131075, 65536, 0, 196610, 65536, 0, 131073, 65536, 0, 196608, 0, 0, 262145, 0, 0, 196612, 0, 0, 262147, 0, 0, 196611, 65536, 0, 131074, 131072, 0, 65539, 65536, 0, 65537, 65536, 0, 196609, 65536, 0)
+script = ExtResource("2_gi2rg")
+
+[node name="ObjetivoNode" parent="TileMap" instance=ExtResource("4_x7skf")]
+
+[node name="Robot" parent="." instance=ExtResource("4_5gqcx")]
+position = Vector2(225, 224)

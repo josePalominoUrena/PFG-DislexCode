@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://qpn33pf4wgd4"]
+
+[ext_resource type="Texture2D" uid="uid://btox68h6mxnab" path="res://Assets/PanelDeControl/objetivos/objetivos_fondo.png" id="1_s0erx"]
+[ext_resource type="Script" path="res://Scripts/ScriptsPanelControl/objetivos_marco.gd" id="1_yet8q"]
+[ext_resource type="Texture2D" uid="uid://o0fismq0s7lf" path="res://Assets/PanelDeControl/objetivos/objetivos_marco.png" id="2_tl1aw"]
+[ext_resource type="FontFile" uid="uid://b3iwxkrgb8j4l" path="res://Assets/Fuentes/minecraft-five-bold.otf" id="4_1mqve"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jx74"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="ObjetivosMarco" type="Control"]
+custom_minimum_size = Vector2(308, 48)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -972.0
+offset_bottom = -672.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yet8q")
+metadata/_edit_lock_ = true
+
+[node name="ObjetivosFondo" type="Sprite2D" parent="."]
+position = Vector2(154, 24)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_s0erx")
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(308, 48)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(48, 41)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3jx74")
+
+[node name="ObjetivosMarco" type="Sprite2D" parent="HBoxContainer/PanelContainer"]
+position = Vector2(24, 24)
+scale = Vector2(0.115, 0.115)
+texture = ExtResource("2_tl1aw")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(38, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_offset_x = 1
+theme_override_fonts/normal_font = ExtResource("4_1mqve")
+bbcode_enabled = true
+fit_content = true
+tab_size = 1
+context_menu_enabled = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/PanelContainer"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5

@@ -1,0 +1,109 @@
+[gd_scene load_steps=9 format=3 uid="uid://xuy171vfnlbs"]
+
+[ext_resource type="Script" path="res://Scripts/ScriptsBloques2/bloque_base.gd" id="1_sywig"]
+[ext_resource type="Texture2D" uid="uid://dkb300qwiplxo" path="res://Assets/Bloques/base x1.png" id="2_adpgd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwgm3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ejweh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vt44x"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfrgt"]
+resource_local_to_scene = true
+size = Vector2(205, 34.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atglw"]
+resource_local_to_scene = true
+size = Vector2(90.2715, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53opl"]
+resource_local_to_scene = true
+size = Vector2(83.25, 25.75)
+
+[node name="BloquePlantilla" type="Control"]
+custom_minimum_size = Vector2(205, 42)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 205.0
+offset_bottom = 42.0
+size_flags_vertical = 0
+mouse_filter = 1
+script = ExtResource("1_sywig")
+
+[node name="Fondo" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(205, 42)
+layout_mode = 1
+offset_right = 205.0
+offset_bottom = 42.0
+mouse_filter = 1
+texture = ExtResource("2_adpgd")
+region_rect = Rect2(0, 0, 205, 42)
+patch_margin_left = 132
+patch_margin_right = 46
+metadata/_edit_use_anchors_ = true
+
+[node name="ArgumentoContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 120.0
+offset_right = 120.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_vwgm3")
+
+[node name="CodigoInteriorContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 36.0
+offset_right = 225.0
+offset_bottom = 78.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_ejweh")
+
+[node name="BloquesCodigo" type="VBoxContainer" parent="CodigoInteriorContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Siguiente" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 2.0
+offset_top = 37.0
+offset_right = 15.0
+offset_bottom = 48.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_vt44x")
+
+[node name="ConexionSiguiente" type="Area2D" parent="."]
+position = Vector2(10, 42)
+
+[node name="AreaSiguiente" type="CollisionShape2D" parent="ConexionSiguiente"]
+position = Vector2(90, -4.75)
+shape = SubResource("RectangleShape2D_vfrgt")
+
+[node name="ConexionArgumento" type="Area2D" parent="."]
+visible = false
+
+[node name="AreaArgumento" type="CollisionShape2D" parent="ConexionArgumento"]
+position = Vector2(-25.2715, 0)
+shape = SubResource("RectangleShape2D_atglw")
+debug_color = Color(0, 0.7, 0.0699999, 0.419608)
+
+[node name="ConexionCodigoInterior" type="Area2D" parent="."]
+visible = false
+
+[node name="AreaCodigoInterior" type="CollisionShape2D" parent="ConexionCodigoInterior"]
+shape = SubResource("RectangleShape2D_53opl")
+debug_color = Color(0.455, 0, 0.7, 0.419608)
+
+[connection signal="child_exiting_tree" from="." to="." method="_on_hijo_removido"]
+[connection signal="gui_input" from="." to="." method="_gui_input"]
+[connection signal="mouse_entered" from="ConexionSiguiente" to="." method="_on_conexion_siguiente_mouse_entered"]
+[connection signal="mouse_exited" from="ConexionSiguiente" to="." method="_on_conexion_siguiente_mouse_exited"]
+[connection signal="mouse_shape_entered" from="ConexionSiguiente" to="." method="_on_conexion_siguiente_mouse_shape_entered"]
+[connection signal="mouse_entered" from="ConexionArgumento" to="." method="_on_conexion_argumento_mouse_entered"]
+[connection signal="mouse_exited" from="ConexionArgumento" to="." method="_on_conexion_argumento_mouse_exited"]
+[connection signal="mouse_entered" from="ConexionCodigoInterior" to="." method="_on_conexion_codigo_interior_mouse_entered"]
+[connection signal="mouse_exited" from="ConexionCodigoInterior" to="." method="_on_conexion_codigo_interior_mouse_exited"]

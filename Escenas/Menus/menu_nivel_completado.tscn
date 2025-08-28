@@ -1,0 +1,104 @@
+[gd_scene load_steps=10 format=3 uid="uid://otxdecco04un"]
+
+[ext_resource type="Script" path="res://Scripts/ScriptsMenus/menu_nivel_completado.gd" id="1_xtgs7"]
+[ext_resource type="Texture2D" uid="uid://c7r1j77y56wjc" path="res://Assets/Menus/Menu_victoria/menu_victoria_fondo.png" id="2_7tl8l"]
+[ext_resource type="Texture2D" uid="uid://rrh82tggfsu8" path="res://Assets/PanelDeControl/boton_empezar/boton_empezar_down.png" id="2_ecvyy"]
+[ext_resource type="FontFile" uid="uid://ctddf6t7nx61x" path="res://Assets/Fuentes/minecraft-five-bold.otf" id="3_d61og"]
+[ext_resource type="Texture2D" uid="uid://ilrcus3ww5op" path="res://Assets/Menus/Menu_victoria/reiniciar.png" id="4_gcfch"]
+[ext_resource type="Texture2D" uid="uid://bj6jllar7s72" path="res://Assets/Robot/SpriteRobot1_victoria.png" id="5_1ojlu"]
+[ext_resource type="Texture2D" uid="uid://0hiex16trtvw" path="res://Assets/Menus/Menu_victoria/siguiente_nivel.png" id="6_cxjol"]
+[ext_resource type="Texture2D" uid="uid://d3eediqxuk54i" path="res://Assets/Menus/Menu_victoria/cerrar.png" id="8_57ms4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pcmnb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="MenuNivelCompletado" type="Control"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -880.0
+offset_bottom = -420.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_xtgs7")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_pcmnb")
+
+[node name="MenuVictoriaFondo" type="Sprite2D" parent="Panel"]
+position = Vector2(200, 149)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_7tl8l")
+metadata/_edit_lock_ = true
+
+[node name="Mensaje" type="RichTextLabel" parent="Panel"]
+clip_contents = false
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 0
+offset_left = 49.0
+offset_top = 100.0
+offset_right = 397.0
+offset_bottom = 160.0
+theme_override_colors/default_color = Color(0.741176, 0.921569, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/normal_font = ExtResource("3_d61og")
+theme_override_font_sizes/normal_font_size = 17
+bbcode_enabled = true
+text = "¡Nivel Completado!"
+fit_content = true
+scroll_active = false
+tab_size = 1
+
+[node name="Reiniciar" type="TextureButton" parent="Panel"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+offset_left = 127.0
+offset_top = 139.0
+offset_right = 577.0
+offset_bottom = 589.0
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("4_gcfch")
+texture_pressed = ExtResource("2_ecvyy")
+
+[node name="SiguienteNivel" type="TextureButton" parent="Panel"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+offset_left = 212.0
+offset_top = 138.0
+offset_right = 662.0
+offset_bottom = 588.0
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("6_cxjol")
+
+[node name="robot" type="Sprite2D" parent="Panel"]
+visible = false
+position = Vector2(341, 136)
+texture = ExtResource("5_1ojlu")
+
+[node name="cerrar" type="TextureButton" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.023
+anchor_bottom = 0.031
+offset_left = 352.0
+offset_top = 88.0
+offset_right = 1262.8
+offset_bottom = 998.7
+scale = Vector2(0.015, 0.015)
+texture_normal = ExtResource("8_57ms4")
+
+[connection signal="pressed" from="Panel/Reiniciar" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Panel/SiguienteNivel" to="." method="_on_next_level_pressed"]
+[connection signal="pressed" from="Panel/cerrar" to="." method="_on_cerrar_pressed"]

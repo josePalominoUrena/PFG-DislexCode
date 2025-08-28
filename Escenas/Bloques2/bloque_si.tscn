@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://doyw1v8b1rqpj"]
+
+[ext_resource type="PackedScene" uid="uid://xuy171vfnlbs" path="res://Escenas/Bloques2/bloque_plantilla.tscn" id="1_w7x7f"]
+[ext_resource type="Script" path="res://Scripts/ScriptsBloques2/bloque_si.gd" id="2_v0xb5"]
+[ext_resource type="Texture2D" uid="uid://dde3cluocikk8" path="res://Assets/Bloques/si x1.png" id="3_m07ep"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2ujl"]
+resource_local_to_scene = true
+size = Vector2(158.514, 23.5231)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3o1v"]
+resource_local_to_scene = true
+size = Vector2(174.136, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5410n"]
+resource_local_to_scene = true
+size = Vector2(141.75, 20.875)
+
+[node name="BloqueSi" instance=ExtResource("1_w7x7f")]
+custom_minimum_size = Vector2(205, 66)
+offset_bottom = 66.0
+script = ExtResource("2_v0xb5")
+tipo = 1
+nombre = "bloque_si"
+
+[node name="Fondo" parent="." index="0"]
+custom_minimum_size = Vector2(205, 72)
+offset_bottom = 72.0
+texture = ExtResource("3_m07ep")
+region_rect = Rect2(0, 0, 205, 99)
+patch_margin_left = 116
+patch_margin_top = 42
+patch_margin_right = 80
+patch_margin_bottom = 30
+
+[node name="ArgumentoContainer" parent="." index="1"]
+offset_left = 88.0
+offset_top = 4.0
+offset_right = 88.0
+offset_bottom = 34.0
+
+[node name="CodigoInteriorContainer" parent="." index="2"]
+offset_left = 12.0
+offset_right = 204.0
+offset_bottom = 36.0
+
+[node name="Siguiente" parent="." index="3"]
+offset_left = 0.0
+offset_top = 66.0
+offset_right = 127.0
+offset_bottom = 87.0
+
+[node name="ConexionSiguiente" parent="." index="4"]
+position = Vector2(0, 60)
+
+[node name="AreaSiguiente" parent="ConexionSiguiente" index="0"]
+position = Vector2(72, 11)
+scale = Vector2(0.928341, 0.956459)
+shape = SubResource("RectangleShape2D_h2ujl")
+debug_color = Color(0.98215, 0, 0.364768, 0.42)
+metadata/_edit_lock_ = true
+
+[node name="ConexionArgumento" parent="." index="5"]
+visible = true
+
+[node name="AreaArgumento" parent="ConexionArgumento" index="0"]
+position = Vector2(175.932, 16.9375)
+shape = SubResource("RectangleShape2D_e3o1v")
+
+[node name="ConexionCodigoInterior" parent="." index="6"]
+visible = true
+
+[node name="AreaCodigoInterior" parent="ConexionCodigoInterior" index="0"]
+position = Vector2(32.875, 44)
+shape = SubResource("RectangleShape2D_5410n")
+metadata/_edit_lock_ = true

@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://bl8kt1suda3ht"]
+
+[sub_resource type="GDScript" id="GDScript_6y8uo"]
+script/source = "extends Node2D
+@onready var gridTablero = $PanelTablero/GridContainer
+
+func configurar_nivel(nivel:Nivel) -> void:
+	gridTablero.configurar_cuadricula(nivel)
+	
+func _ready() -> void:
+	gridTablero.custom_minimum_size = Vector2(450, 450)
+	$PanelTablero.custom_minimum_size = Vector2(450, 450)
+
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="Tablero" type="Node2D"]
+script = SubResource("GDScript_6y8uo")
+
+[node name="PanelTablero" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 450.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="PanelTablero"]
+layout_mode = 2
+columns = 5

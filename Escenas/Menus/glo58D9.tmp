@@ -1,0 +1,157 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8p8pftqy1pmv"]
+
+[ext_resource type="Texture2D" uid="uid://dc802vnbvuca6" path="res://Assets/Menus/libro/libro_abierto.png" id="1_1wjwa"]
+[ext_resource type="Script" path="res://Scripts/ScriptsMenus/glosario.gd" id="1_i1tst"]
+[ext_resource type="Texture2D" uid="uid://d3eediqxuk54i" path="res://Assets/Menus/Menu_victoria/cerrar.png" id="3_ijl0g"]
+[ext_resource type="Texture2D" uid="uid://0hiex16trtvw" path="res://Assets/Menus/Menu_victoria/siguiente_nivel.png" id="4_73vdx"]
+[ext_resource type="Texture2D" uid="uid://bt5bsvxx3hkc3" path="res://Assets/Menus/libro/pag1.png" id="5_voju3"]
+[ext_resource type="Texture2D" uid="uid://d35hwflsg4hfy" path="res://Assets/Menus/libro/pag2.png" id="6_m3d5d"]
+
+[node name="Glosario" type="Control" node_paths=PackedStringArray("paginas")]
+custom_minimum_size = Vector2(800, 500)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = -466.0
+offset_bottom = -221.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i1tst")
+paginas = [NodePath("Arrastrar"), NodePath("Robot")]
+metadata/_edit_lock_ = true
+
+[node name="LibroAbierto" type="Sprite2D" parent="."]
+position = Vector2(404, 247)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_1wjwa")
+metadata/_edit_lock_ = true
+
+[node name="cerrar" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.023
+anchor_bottom = 0.031
+offset_left = 698.0
+offset_top = 13.0
+offset_right = 1609.6
+offset_bottom = 929.9
+scale = Vector2(0.03, 0.03)
+texture_normal = ExtResource("3_ijl0g")
+metadata/_edit_lock_ = true
+
+[node name="SiguientePagina" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(90, 60)
+offset_left = 751.0
+offset_top = 206.0
+offset_right = 1201.0
+offset_bottom = 656.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("4_73vdx")
+metadata/_edit_lock_ = true
+
+[node name="AnteriorPagina" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(90, 60)
+offset_left = -33.0
+offset_top = 207.0
+offset_right = 417.0
+offset_bottom = 657.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("4_73vdx")
+flip_h = true
+metadata/_edit_lock_ = true
+
+[node name="Arrastrar" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 53.0
+offset_top = 43.0
+offset_right = 453.0
+offset_bottom = 423.0
+scale = Vector2(1.757, 1)
+
+[node name="izquierda" type="PanelContainer" parent="Arrastrar"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 3.41491
+offset_top = 2.0
+offset_right = 193.415
+offset_bottom = 382.0
+
+[node name="Pag1" type="Sprite2D" parent="Arrastrar/izquierda"]
+position = Vector2(95.0484, 310)
+scale = Vector2(0.1, 0.2)
+texture = ExtResource("5_voju3")
+
+[node name="derecha" type="PanelContainer" parent="Arrastrar"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 207.171
+offset_top = 11.0
+offset_right = 397.171
+offset_bottom = 391.0
+
+[node name="explicacion" type="RichTextLabel" parent="Arrastrar/derecha"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 13
+bbcode_enabled = true
+text = "Arrastra un bloque sobre otro para unirlos. 
+Así construyes pasos que el robot seguirá.
+El orden importa: los bloques de arriba se hacen primero
+
+1.Pulsa el bloque con el ratón.
+
+2.Mantén pulsado y muévelo.
+
+3.Suelta encima o debajo de otro bloque hasta que encaje."
+
+[node name="Robot" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 53.0
+offset_top = 43.0
+offset_right = 453.0
+offset_bottom = 423.0
+scale = Vector2(1.757, 1)
+
+[node name="izquierda" type="PanelContainer" parent="Robot"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 3.41491
+offset_top = 2.0
+offset_right = 193.415
+offset_bottom = 382.0
+
+[node name="Pag1" type="Sprite2D" parent="Robot/izquierda"]
+position = Vector2(92.7718, 264)
+scale = Vector2(0.1, 0.17)
+texture = ExtResource("6_m3d5d")
+
+[node name="derecha" type="PanelContainer" parent="Robot"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 207.171
+offset_top = 11.0
+offset_right = 397.171
+offset_bottom = 391.0
+
+[node name="explicacion" type="RichTextLabel" parent="Robot/derecha"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 15
+bbcode_enabled = true
+text = "El Robot
++Es el “ayudante” del juego.
++Camina por el tablero casilla a casilla, como en un mapa de cuadritos.
++Cada bloque es una instrucción: con AVANZAR da un paso; con GIRAR cambia de dirección; con MIENTRAS repite; con SI y SI NO decide
+
+Usa la palanca para cambiar la velocidad del robot
+"
+
+[connection signal="pressed" from="cerrar" to="." method="_on_cerrar_pressed"]
+[connection signal="pressed" from="SiguientePagina" to="." method="_on_siguiente_pagina_pressed"]
+[connection signal="pressed" from="AnteriorPagina" to="." method="_on_anterior_pagina_pressed"]

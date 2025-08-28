@@ -1,0 +1,258 @@
+[gd_scene load_steps=24 format=3 uid="uid://bbxsvv6cyb5qj"]
+
+[ext_resource type="Script" path="res://Scripts/controlDeNivel.gd" id="1_gnj10"]
+[ext_resource type="Texture2D" uid="uid://cblgnlm4krpjf" path="res://Assets/Interfaz/fondo titulo.png" id="2_j3nby"]
+[ext_resource type="PackedScene" uid="uid://c8p8pftqy1pmv" path="res://Escenas/Menus/glosario.tscn" id="2_pxeof"]
+[ext_resource type="PackedScene" uid="uid://c5lisvp802l51" path="res://Escenas/Tablero/tablero_tile_map.tscn" id="2_v8jna"]
+[ext_resource type="PackedScene" uid="uid://dg08a3vfkevkj" path="res://Escenas/Bloques/ZonaConstrucción.tscn" id="3_3jmmx"]
+[ext_resource type="Texture2D" uid="uid://g3h7y32h04o2" path="res://Assets/Robot/SpriteRobot0_icon.png" id="3_70y4c"]
+[ext_resource type="Texture2D" uid="uid://caww7p5rrs2br" path="res://Assets/Interfaz/titulo2.png" id="3_bu0tu"]
+[ext_resource type="Texture2D" uid="uid://4q5uignih5r8" path="res://Assets/Interfaz/fondo titulo_derecha.png" id="3_c4gmh"]
+[ext_resource type="Texture2D" uid="uid://caitb2jcwd5ni" path="res://Assets/Robot/SpriteRobot1_icon.png" id="4_ur6qj"]
+[ext_resource type="PackedScene" uid="uid://4u3ukc7owoei" path="res://Escenas/PanelDeControl/boton_velocidad.tscn" id="5_c2nl4"]
+[ext_resource type="PackedScene" uid="uid://dlwnrjvnsv3e2" path="res://Escenas/PanelDeControl/panel_de_control.tscn" id="6_3mmcu"]
+[ext_resource type="Texture2D" uid="uid://crbv0riakv3sk" path="res://Assets/Tiles/tile set_basico_icon.png" id="7_i5wq1"]
+[ext_resource type="Texture2D" uid="uid://cndktcfm6wtrq" path="res://Assets/Menus/botón_salir_normal.png" id="8_dm3hr"]
+[ext_resource type="Texture2D" uid="uid://dq5fyboa7muew" path="res://Assets/Menus/botón_salir_pulsado.png" id="9_beny5"]
+[ext_resource type="PackedScene" uid="uid://otxdecco04un" path="res://Escenas/Menus/menu_nivel_completado.tscn" id="9_diyau"]
+[ext_resource type="Texture2D" uid="uid://citbyu1abk34l" path="res://Assets/Tiles/tile_set_nature_icon.png" id="9_i18jh"]
+[ext_resource type="Texture2D" uid="uid://bff3rtrvpl5qi" path="res://Assets/Menus/instrucciones.png" id="10_3m8q1"]
+[ext_resource type="Texture2D" uid="uid://c0uj5t3cnxabj" path="res://Assets/Tiles/tile_set_pipes_icon.png" id="11_sv4t4"]
+[ext_resource type="PackedScene" uid="uid://qusroma600r8" path="res://Escenas/Menus/confirmarcion_salir.tscn" id="12_haums"]
+[ext_resource type="PackedScene" uid="uid://3vn2yffdtgl3" path="res://Escenas/Menus/mensaje_inicio_nivel.tscn" id="12_jy1t4"]
+[ext_resource type="Texture2D" uid="uid://cwmnndgny4urv" path="res://Assets/Menus/libro/libro_icon.png" id="13_0gib0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vqaxr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oj58n"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_gnj10")
+
+[node name="Encabezado" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1275.0
+offset_bottom = 50.0
+scale = Vector2(1.00359, 1)
+
+[node name="FondoTituloDerecha" type="Sprite2D" parent="Encabezado"]
+position = Vector2(859.913, 25)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_c4gmh")
+metadata/_edit_lock_ = true
+
+[node name="FondoTitulo" type="Sprite2D" parent="Encabezado"]
+position = Vector2(224.195, 25)
+scale = Vector2(0.0996423, 0.1)
+texture = ExtResource("2_j3nby")
+metadata/_edit_lock_ = true
+
+[node name="Titulo Juego" type="PanelContainer" parent="Encabezado"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 0
+offset_left = 63.7711
+offset_top = 1.0
+offset_right = 3383.78
+offset_bottom = 501.0
+scale = Vector2(0.1, 0.1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_vqaxr")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Encabezado/Titulo Juego"]
+layout_mode = 2
+texture = ExtResource("3_bu0tu")
+metadata/_edit_lock_ = true
+
+[node name="SeleccionarNivel" type="OptionButton" parent="Encabezado"]
+layout_mode = 0
+offset_left = 864.895
+offset_top = 13.0
+offset_right = 994.895
+offset_bottom = 44.0
+item_count = 4
+popup/item_0/text = "Nivel 0"
+popup/item_1/text = "Nivel 1"
+popup/item_1/id = 1
+popup/item_2/text = "Nivel 2"
+popup/item_2/id = 2
+popup/item_3/text = "Nivel 3"
+popup/item_3/id = 3
+
+[node name="SeleccionarRobot" type="OptionButton" parent="Encabezado"]
+z_index = 1
+texture_filter = 3
+layout_mode = 0
+offset_left = 460.347
+offset_top = 6.0
+offset_right = 537.347
+offset_bottom = 42.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_oj58n")
+alignment = 1
+icon_alignment = 1
+selected = 0
+item_count = 2
+popup/item_0/icon = ExtResource("3_70y4c")
+popup/item_1/icon = ExtResource("4_ur6qj")
+popup/item_1/id = 1
+
+[node name="SeleccionarTileSet" type="OptionButton" parent="Encabezado"]
+layout_mode = 0
+offset_left = 541.058
+offset_top = 6.0
+offset_right = 618.058
+offset_bottom = 42.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0)
+theme_override_constants/icon_max_width = 45
+icon_alignment = 1
+expand_icon = true
+selected = 0
+item_count = 3
+popup/item_0/icon = ExtResource("7_i5wq1")
+popup/item_1/icon = ExtResource("9_i18jh")
+popup/item_1/id = 1
+popup/item_2/icon = ExtResource("11_sv4t4")
+popup/item_2/id = 2
+
+[node name="BotonVelocidad" parent="Encabezado" instance=ExtResource("5_c2nl4")]
+top_level = true
+z_index = 2
+z_as_relative = false
+layout_mode = 1
+offset_left = 30.0
+offset_top = 649.0
+offset_right = -1200.0
+offset_bottom = -21.0
+scale = Vector2(1.4, 1.4)
+
+[node name="BotonSalir" type="TextureButton" parent="Encabezado"]
+layout_mode = 0
+offset_left = 1208.66
+offset_top = -1.0
+offset_right = 2108.66
+offset_bottom = 899.0
+scale = Vector2(0.06, 0.06)
+texture_normal = ExtResource("8_dm3hr")
+texture_pressed = ExtResource("9_beny5")
+
+[node name="Glosario" type="TextureButton" parent="Encabezado"]
+custom_minimum_size = Vector2(50, 44)
+layout_mode = 0
+offset_left = 640.7
+offset_top = 3.0
+offset_right = 690.7
+offset_bottom = 47.0
+texture_normal = ExtResource("13_0gib0")
+
+[node name="Instrucciones" type="TextureButton" parent="Encabezado"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 713.439
+offset_top = 5.0
+offset_right = 1613.44
+offset_bottom = 905.0
+scale = Vector2(0.045, 0.045)
+texture_normal = ExtResource("10_3m8q1")
+
+[node name="Columna Izq" type="Panel" parent="."]
+layout_mode = 1
+offset_top = 50.0
+offset_right = 450.0
+offset_bottom = 720.0
+scale = Vector2(1.0011, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ContenedorTablero" type="PanelContainer" parent="Columna Izq"]
+layout_mode = 2
+offset_right = 450.0
+offset_bottom = 450.0
+
+[node name="TableroTileMap" parent="Columna Izq/ContenedorTablero" instance=ExtResource("2_v8jna")]
+position = Vector2(-1.9978, -2)
+metadata/_edit_lock_ = true
+
+[node name="PanelDeControl" parent="Columna Izq" instance=ExtResource("6_3mmcu")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.00266824
+anchor_top = 0.681405
+anchor_right = 0.997332
+anchor_bottom = 1.6814
+offset_left = 1.20071
+offset_top = -5.54108
+offset_right = 1.20071
+offset_bottom = -455.541
+
+[node name="Columna derecha" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00078125
+anchor_right = 0.00078125
+offset_left = 451.0
+offset_top = 50.0
+offset_right = 1281.0
+offset_bottom = 720.0
+scale = Vector2(1.0011, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ZonaConstrucción" parent="Columna derecha" instance=ExtResource("3_3jmmx")]
+offset_left = -2.0
+offset_right = -2.0
+scale = Vector2(0.998901, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuNivelCompletado" parent="." instance=ExtResource("9_diyau")]
+visible = false
+z_index = 3
+layout_mode = 1
+offset_left = 312.0
+offset_top = 111.0
+offset_right = -568.0
+offset_bottom = -309.0
+scale = Vector2(1.5, 1.5)
+
+[node name="MensajeInicioNivel" parent="." instance=ExtResource("12_jy1t4")]
+z_index = 2
+layout_mode = 1
+offset_left = 729.0
+offset_top = 295.0
+offset_right = -186.0
+offset_bottom = -325.0
+scale = Vector2(1.5, 1.5)
+
+[node name="Glosario" parent="." instance=ExtResource("2_pxeof")]
+visible = false
+z_index = 6
+layout_mode = 1
+offset_left = 235.0
+offset_top = 88.0
+offset_right = -232.0
+offset_bottom = -132.0
+
+[node name="confirmarcionSalir" parent="." instance=ExtResource("12_haums")]
+visible = false
+z_index = 8
+layout_mode = 1
+offset_left = 468.0
+offset_top = 177.0
+offset_right = -507.0
+offset_bottom = 327.0
+
+[connection signal="item_selected" from="Encabezado/SeleccionarNivel" to="." method="_on_seleccionar_nivel_item_selected"]
+[connection signal="item_selected" from="Encabezado/SeleccionarRobot" to="." method="_on_seleccionar_robot_item_selected"]
+[connection signal="item_selected" from="Encabezado/SeleccionarTileSet" to="." method="_on_seleccionar_tile_set_item_selected"]
+[connection signal="cambio_velocidad" from="Encabezado/BotonVelocidad" to="." method="_on_boton_velocidad_cambio_velocidad"]
+[connection signal="pressed" from="Encabezado/BotonSalir" to="." method="_on_boton_salir_pressed"]
+[connection signal="pressed" from="Encabezado/Glosario" to="." method="_on_glosario_pressed"]
+[connection signal="pressed" from="Encabezado/Instrucciones" to="." method="_on_instrucciones_pressed"]
+[connection signal="next_level_requested" from="MenuNivelCompletado" to="." method="_on_menu_nivel_completado_next_level_requested"]
+[connection signal="restart_requested" from="MenuNivelCompletado" to="." method="_on_menu_nivel_completado_restart_requested"]

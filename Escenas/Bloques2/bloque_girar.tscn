@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://dat1ut7p7djjl"]
+
+[ext_resource type="PackedScene" uid="uid://xuy171vfnlbs" path="res://Escenas/Bloques2/bloque_plantilla.tscn" id="1_5a625"]
+[ext_resource type="Script" path="res://Scripts/ScriptsBloques2/bloque_girar.gd" id="2_y5atf"]
+[ext_resource type="Texture2D" uid="uid://bv1a0fkb2di5f" path="res://Assets/Bloques/girar_derecha.png" id="3_47hu8"]
+[ext_resource type="Texture2D" uid="uid://c161om3sdulcb" path="res://Assets/Bloques/girar_izquierda.png" id="3_jihie"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhp54"]
+resource_local_to_scene = true
+size = Vector2(115, 34.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xyahg"]
+resource_local_to_scene = true
+size = Vector2(90.2715, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvh8g"]
+resource_local_to_scene = true
+size = Vector2(83.25, 25.75)
+
+[node name="BloqueGirar" instance=ExtResource("1_5a625")]
+custom_minimum_size = Vector2(205, 35)
+offset_right = -1068.0
+offset_bottom = -688.0
+script = ExtResource("2_y5atf")
+imagen_izquierda = ExtResource("3_jihie")
+imagen_derecha = ExtResource("3_47hu8")
+tipo = 2
+nombre = "bloque_girar"
+
+[node name="Fondo" parent="." index="0"]
+custom_minimum_size = Vector2(212, 42)
+offset_right = 2120.0
+offset_bottom = 420.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_47hu8")
+region_rect = Rect2(0, 0, 2120, 420)
+patch_margin_left = 792
+patch_margin_right = 1312
+metadata/_edit_lock_ = true
+
+[node name="ArgumentoContainer" parent="." index="1"]
+visible = false
+
+[node name="CodigoInteriorContainer" parent="." index="2"]
+visible = false
+
+[node name="Siguiente" parent="." index="3"]
+offset_left = 0.0
+offset_right = 13.0
+
+[node name="AreaSiguiente" parent="ConexionSiguiente" index="0"]
+position = Vector2(33.5, -4.75)
+shape = SubResource("RectangleShape2D_bhp54")
+
+[node name="ConexionArgumento" parent="." index="5"]
+visible = true
+
+[node name="AreaArgumento" parent="ConexionArgumento" index="0"]
+position = Vector2(157.864, 18)
+shape = SubResource("RectangleShape2D_xyahg")
+
+[node name="AreaCodigoInterior" parent="ConexionCodigoInterior" index="0"]
+shape = SubResource("RectangleShape2D_uvh8g")

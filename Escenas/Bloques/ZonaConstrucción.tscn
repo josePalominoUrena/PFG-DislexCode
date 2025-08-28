@@ -1,0 +1,180 @@
+[gd_scene load_steps=14 format=3 uid="uid://dg08a3vfkevkj"]
+
+[ext_resource type="Script" path="res://Scripts/ScriptsBloques/zona_construcción.gd" id="1_30x7c"]
+[ext_resource type="PackedScene" uid="uid://doyw1v8b1rqpj" path="res://Escenas/Bloques2/bloque_si.tscn" id="2_3t73e"]
+[ext_resource type="PackedScene" uid="uid://rg2alsw5kq" path="res://Escenas/Bloques2/bloque_inicio.tscn" id="2_8gf6u"]
+[ext_resource type="PackedScene" uid="uid://bkq3ukqed4vn7" path="res://Escenas/Bloques2/bloque_avanzar.tscn" id="2_lqers"]
+[ext_resource type="Texture2D" uid="uid://b1enyja2vc7no" path="res://Assets/Interfaz/fondo_menu_bloques.png" id="2_mhobm"]
+[ext_resource type="PackedScene" uid="uid://76lemiuy60de" path="res://Escenas/Bloques2/bloque_mientras.tscn" id="3_uejlr"]
+[ext_resource type="PackedScene" uid="uid://coa5le1ibokt7" path="res://Escenas/Bloques2/bloque_si_no.tscn" id="4_4xkp8"]
+[ext_resource type="PackedScene" uid="uid://dh87a74yu7txu" path="res://Escenas/Bloques2/bloque_objetivo_alcanzado.tscn" id="4_bga8p"]
+[ext_resource type="Script" path="res://Scripts/ScriptsBloques/puente.gd" id="5_6xi3r"]
+[ext_resource type="PackedScene" uid="uid://dat1ut7p7djjl" path="res://Escenas/Bloques2/bloque_girar.tscn" id="5_hf0hi"]
+[ext_resource type="Texture2D" uid="uid://wpjoxp2efxw3" path="res://Assets/Otros/basura.png" id="6_kfmv7"]
+[ext_resource type="PackedScene" uid="uid://c57fvbaqrg6n7" path="res://Escenas/Bloques2/bloque_siguiente_color.tscn" id="7_6phrk"]
+
+[sub_resource type="Theme" id="Theme_bw35o"]
+
+[node name="ZonaConstrucción" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_30x7c")
+
+[node name="PanelBloques" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 830.0
+offset_bottom = 670.0
+
+[node name="MenuBloques" type="PanelContainer" parent="PanelBloques"]
+layout_mode = 0
+offset_right = 316.0
+offset_bottom = 670.0
+
+[node name="FondoMenuBloques" type="Sprite2D" parent="PanelBloques/MenuBloques"]
+position = Vector2(158, 335)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_mhobm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelBloques/MenuBloques"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+mouse_filter = 0
+theme_override_constants/separation = 70
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelBloques/MenuBloques/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = -50
+
+[node name="ContainerSI" type="MarginContainer" parent="PanelBloques/MenuBloques/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = -60
+
+[node name="BloqueSi" parent="PanelBloques/MenuBloques/VBoxContainer/ContainerSI" instance=ExtResource("2_3t73e")]
+layout_mode = 2
+size_flags_vertical = 1
+mouse_filter = 0
+
+[node name="ContainerSiNo" type="MarginContainer" parent="PanelBloques/MenuBloques/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = -60
+
+[node name="BloqueSiNo" parent="PanelBloques/MenuBloques/VBoxContainer/ContainerSiNo" instance=ExtResource("4_4xkp8")]
+layout_mode = 2
+
+[node name="ContainerMientras" type="MarginContainer" parent="PanelBloques/MenuBloques/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = -60
+
+[node name="BloqueMientras" parent="PanelBloques/MenuBloques/VBoxContainer/ContainerMientras" instance=ExtResource("3_uejlr")]
+layout_mode = 2
+size_flags_vertical = 1
+mouse_filter = 0
+
+[node name="ContainerAvanzar" type="MarginContainer" parent="PanelBloques/MenuBloques/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = -60
+
+[node name="BloqueAvanzar" parent="PanelBloques/MenuBloques/VBoxContainer/ContainerAvanzar" instance=ExtResource("2_lqers")]
+layout_mode = 2
+size_flags_vertical = 1
+mouse_filter = 0
+
+[node name="ContainerGirar" type="MarginContainer" parent="PanelBloques/MenuBloques/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = -50
+
+[node name="BloqueGirar" parent="PanelBloques/MenuBloques/VBoxContainer/ContainerGirar" instance=ExtResource("5_hf0hi")]
+layout_mode = 2
+size_flags_vertical = 1
+mouse_filter = 0
+
+[node name="ContainerSiguienteColor" type="MarginContainer" parent="PanelBloques/MenuBloques/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = -50
+
+[node name="BloqueSiguienteColor" parent="PanelBloques/MenuBloques/VBoxContainer/ContainerSiguienteColor" instance=ExtResource("7_6phrk")]
+layout_mode = 2
+size_flags_vertical = 1
+mouse_filter = 0
+metadata/_edit_lock_ = true
+
+[node name="ContainerObjetivoAlcanzado" type="MarginContainer" parent="PanelBloques/MenuBloques/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = -60
+
+[node name="BloqueObjetivoAlcanzado" parent="PanelBloques/MenuBloques/VBoxContainer/ContainerObjetivoAlcanzado" instance=ExtResource("4_bga8p")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+size_flags_vertical = 1
+mouse_filter = 0
+
+[node name="Lienzo" type="Panel" parent="PanelBloques"]
+layout_mode = 0
+offset_left = 314.0
+offset_right = 829.0
+offset_bottom = 670.0
+
+[node name="ColorRect" type="ColorRect" parent="PanelBloques/Lienzo"]
+modulate = Color(0.36, 0.456, 1, 1)
+layout_mode = 2
+offset_left = 2.0
+offset_right = 517.0
+offset_bottom = 683.0
+scale = Vector2(1, 0.980464)
+
+[node name="BloqueInicio" parent="PanelBloques/Lienzo" instance=ExtResource("2_8gf6u")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 55.0
+offset_top = 24.0
+offset_right = -460.0
+offset_bottom = -646.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+mouse_filter = 0
+
+[node name="Button" type="Button" parent="PanelBloques/Lienzo"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 4.0
+offset_top = 586.0
+offset_right = 68.0
+offset_bottom = 664.0
+scale = Vector2(0.775, 1)
+theme = SubResource("Theme_bw35o")
+
+[node name="Basura" type="Sprite2D" parent="PanelBloques/Lienzo/Button"]
+position = Vector2(29.6774, 37)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_kfmv7")
+
+[node name="puente" type="Node2D" parent="."]
+position = Vector2(489, 154)
+script = ExtResource("5_6xi3r")
+
+[connection signal="button_down" from="PanelBloques/Lienzo/Button" to="." method="_on_button_button_down"]

@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://damba08i0fgn8"]
+
+[ext_resource type="Script" path="res://Scripts/ScriptsTablero/objetivo_node.gd" id="1_ma1w0"]
+[ext_resource type="FontFile" uid="uid://ctddf6t7nx61x" path="res://Assets/Fuentes/minecraft-five-bold.otf" id="2_i0udc"]
+
+[node name="ObjetivoNode" type="Node2D"]
+script = ExtResource("1_ma1w0")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("2_i0udc")
+theme_override_font_sizes/font_size = 13
+text = "gdhj"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://csviywvmynaq"]
+
+[ext_resource type="Script" path="res://Scripts/ScriptsPanelControl/boton_empezar.gd" id="1_el2i7"]
+[ext_resource type="Texture2D" uid="uid://durjygao0e6s1" path="res://Assets/PanelDeControl/boton_empezar/boton_empezar_fondo.png" id="1_t8v6k"]
+[ext_resource type="Texture2D" uid="uid://ddrpheluohfib" path="res://Assets/PanelDeControl/boton_empezar/boton_empezar_up.png" id="2_spahj"]
+[ext_resource type="Texture2D" uid="uid://rrh82tggfsu8" path="res://Assets/PanelDeControl/boton_empezar/boton_empezar_down.png" id="3_l8tlm"]
+[ext_resource type="Texture2D" uid="uid://biw2nie0fe8we" path="res://Assets/PanelDeControl/boton_empezar/boton_reinicia_up.png" id="4_yb4mu"]
+[ext_resource type="Texture2D" uid="uid://b7lfuj8nr6g1n" path="res://Assets/PanelDeControl/boton_empezar/boton_reinicia_down.png" id="5_8m2rt"]
+
+[node name="BotonEmpezar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1142.0
+offset_bottom = -672.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_el2i7")
+empezar_up = ExtResource("2_spahj")
+empezar_down = ExtResource("3_l8tlm")
+reinicia_up = ExtResource("4_yb4mu")
+reinicia_down = ExtResource("5_8m2rt")
+metadata/_edit_lock_ = true
+
+[node name="BotonEmpezarFondo" type="Sprite2D" parent="."]
+position = Vector2(69, 24)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_t8v6k")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(119, 30)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 7.0
+offset_right = 1200.0
+offset_bottom = 307.0
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("2_spahj")
+texture_pressed = ExtResource("3_l8tlm")
+
+[connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_button_up"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

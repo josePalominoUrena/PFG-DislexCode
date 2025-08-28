@@ -1,0 +1,28 @@
+﻿Tipo;¿qué palabra es?;;;;;
+Nivel;9;;;;;
+TamCuadricula;7;;;;;
+PosRobot;0;3;;;;
+NumObjetivos;3;;;;;
+texto;pi;2;1;;;
+texto;za;2;5;;;
+texto;rra;6;5;;;
+SoluciónOrdenada;1;;;;;
+NumeroDeSoluciones;3;;;;;
+pi;;;;;;
+za;;;;;;
+rra;;;;;;
+BloquesUsables;0;;;;;
+ColoresSeguros;3;;;;;
+Blanco;;;;;;
+Azul;;;;;;
+Verde;;;;;;
+ColoresCasillas;;;;;;
+Rojo;Rojo;Rojo;Rojo;Rojo;Rojo;Rojo
+Rojo;Rojo;Verde;Rojo;Rojo;Rojo;Rojo
+Rojo;Rojo;Verde;Rojo;Rojo;Rojo;Rojo
+Verde;Verde;Verde;Rojo;Rojo;Rojo;Rojo
+Rojo;Rojo;Azul;Rojo;Rojo;Rojo;Rojo
+Rojo;Rojo;Azul;Blanco;Blanco;Blanco;Blanco
+Rojo;Rojo;Rojo;Rojo;Rojo;Rojo;Rojo
+Descripcion;;;;;;
+Recorre las casillas para conseguir formar una palabra.;;;;;;

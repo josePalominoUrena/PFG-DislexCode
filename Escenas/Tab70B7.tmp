@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2a31kye4mh3f"]
+
+[ext_resource type="Script" path="res://Scripts/Tablero5x5.gd" id="1_twabp"]
+
+[node name="Tablero5x5" type="Node2D"]
+
+[node name="PanelTablero" type="PanelContainer" parent="."]
+offset_right = 450.0
+offset_bottom = 450.0
+
+[node name="GridContainer" type="GridContainer" parent="PanelTablero"]
+layout_mode = 2
+columns = 5
+script = ExtResource("1_twabp")
