@@ -1,27 +1,30 @@
-﻿Tipo;Tutorial: bloque mientras con avanzar;;;
-Nivel;3;;;
-TamCuadricula;5;;;
-PosRobot;2;0;;
-NumObjetivos;1;;;
-texto;Meta;2;4;
-SoluciónOrdenada;0;;;
-NumeroDeSoluciones;1;;;
-Meta;;;;
-BloquesUsables;4;;;
-avanzar;;;;
-girar;;;;
-mientras;;;;
-objetivo_alcanzado;;;;
-ColoresSeguros;2;;;
-Blanco;;;;
-Azul;;;;
-ColoresCasillas;;;;
-Rojo;Negro;Azul;Negro;Rojo
-Rojo;Negro;Azul;Negro;Rojo
-Rojo;Negro;Azul;Negro;Rojo
-Rojo;Negro;Azul;Negro;Rojo
-Rojo;Negro;Azul;Negro;Rojo
-Descripcion;;;;
-MIENTRAS: repite acciones una y otra vez. Funciona como: ‘MIENTRAS no se haya alcanzado el objetivo: AVANZAR’. Coloca un bloque OBJETIVO ALCANZADO a la derecha para la condición. Dentro pones qué hacer.;;;;
-Descripcion_corta;;;;
-MIENTRAS repitirá una acción hasta que sea verdad una condición ;;;;
+﻿Tipo;Tutorial;;;;;;;;;
+Nombre;Bloque mientras con avanzar;;;;;;;;;
+Nivel;3;;;;;;;;;
+TamCuadricula;5;;;;;;;;;
+PosRobot;2;0;;;;;;;;
+DireccionRobot;abajo;;;;;;arriba;abajo;izquierda;derecha
+NumObjetivos;1;;;;;;;;;
+texto;Meta;2;4;;;;;;;
+SoluciónOrdenada;0;;;;;;;;;
+NumeroDeSoluciones;1;;;;;;;;;
+Meta;;;;;;;;;;
+BloquesUsables;4;;;;;;;;;
+avanzar;;;;;;;;;;
+girar;;;;;;;;;;
+mientras;;;;;;;;;;
+objetivo_alcanzado;;;;;;;;;;
+ColoresSeguros;2;;;;;;;;;
+Blanco;;;;;;;;;;
+Azul;;;;;;;;;;
+ColoresCasillas;;;;;;;;;;
+Rojo;Negro;Azul;Negro;Rojo;;;;;;
+Rojo;Negro;Azul;Negro;Rojo;;;;;;
+Rojo;Negro;Azul;Negro;Rojo;;;Negro;;;
+Rojo;Negro;Azul;Negro;Rojo;;;;;;
+Rojo;Negro;Azul;Negro;Rojo;;;;;;
+Descripcion;;;;;;;;;;
+MIENTRAS: repite acciones una y otra vez. Funciona como: ‘MIENTRAS no se haya alcanzado el objetivo: AVANZAR’. Coloca un bloque OBJETIVO ALCANZADO a la derecha para la condición. Dentro pones qué hacer.;;;;;;;;;;
+Descripcion_corta;;;;;;;;;;
+MIENTRAS repitirá una acción hasta que sea verdad una condición ;;;;;;;;;;
+Página_glosario;Mientras;;;;;;;;;

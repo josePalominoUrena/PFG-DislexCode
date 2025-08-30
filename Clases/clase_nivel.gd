@@ -2,9 +2,11 @@ class_name Nivel
 extends RefCounted
 
 var tipo_ejercicio: String
+var nombre: String = ""
 var num_nivel: int
 var tam_cuadricula: int
 var posicion_inicial_robot: Vector2
+var direccion_inicial_robot: DIRECCION.tipo
 var num_objetivos: int
 var objetivos: Array  = [] # Array de Objetivo (valor, x, y)
 var solucion_ordenada: bool
@@ -17,8 +19,9 @@ var descripcion_ejercicio: String
 var descripcion_corta: String
 var pagina_glosario: String = "sin_glosario"
 
-func _init(file_path: String):
+func _init(file_path: String, num: int):
 	cargar_nivel_csv(file_path)
+	num_nivel = num
 
 func es_solucion(obj:Objetivo) -> bool:
 	if soluciones.has(obj.valor):
@@ -38,17 +41,31 @@ func cargar_nivel_csv(file_path: String):
 		print("Error: no se puedo abrir el nivel " + file_path)
 		return null
 	else:
-		print("OK: abierto correctamente el nivel " + file_path)
+		#print("OK: abierto correctamente el nivel " + file_path)
+		pass
 	#1ª línea: indica el tipo de ejercicio (ordenar silabas, unir palabras, tutorial...)
 	tipo_ejercicio = siguente_linea(file)[1]
-	#2ª línea: número de nivel	
-	num_nivel = int(siguente_linea(file)[1])
+	#2ª línea: nombre
+	nombre = siguente_linea(file)[1]
+	#consumir linea num_nivel
+	siguente_linea(file)
 	#3ª línea: tamaño de cuadrícula
 	#5->5x5 6-> 6x6 7->7x7
 	tam_cuadricula = int(siguente_linea(file)[1])
 	#4ª línea: posición inicial del robot
 	var linea_pos_ini = siguente_linea(file)
 	posicion_inicial_robot = Vector2(int(linea_pos_ini[1]), int(linea_pos_ini[2]))
+	var linea_direccion = siguente_linea(file)[1]
+	match linea_direccion:
+		"arriba":
+			direccion_inicial_robot = DIRECCION.tipo.ARRIBA
+		"abajo":
+			direccion_inicial_robot = DIRECCION.tipo.ABAJO
+		"izquierda":
+			direccion_inicial_robot = DIRECCION.tipo.IZQUIERDA
+		"derecha":
+			direccion_inicial_robot = DIRECCION.tipo.DERECHA
+	
 	#5ª línea: número de objetivos
 	num_objetivos = int(siguente_linea(file)[1])
 	#Cargar los objetivos en un array
@@ -92,7 +109,9 @@ func cargar_nivel_csv(file_path: String):
 	file.get_csv_line() #saltarse la línea de título
 	descripcion_corta = siguente_linea(file)[0]
 	#13º linea: (opcional) si viene asociado con una página del glosario
-	pagina_glosario = siguente_linea(file)[0]
+	var p_g = siguente_linea(file)
+	if p_g.size() > 1:
+		pagina_glosario = p_g[1]
 
 func mostrar_informacion() -> String:
 	var info_nivel := ""

@@ -1,24 +1,24 @@
 extends Control
 
 # Referencias a los nodos
-@onready var tablero:             Node2D        = $"Columna Izq/ContenedorTablero/TableroTileMap"
-@onready var menuNivel:           OptionButton  = $"Encabezado/SeleccionarNivel"
-@onready var ZonaConstruccion:    Control       = $"Columna derecha/ZonaConstrucción"
-@onready var panelControl:        Control       = $"Columna Izq/PanelDeControl"
-@onready var menuNivelCompletado: Control       = $MenuNivelCompletado
-@onready var mensajeInicioNivel:  Control       = $MensajeInicioNivel
-@onready var confirmacionSalir:   Control       = $confirmarcionSalir
-@onready var glosario:            Control       = $Glosario
 
-var lista_niveles:Array = []
-var nivel:Nivel
+@onready var tablero:             Node2D          = $"Columna Izq/ContenedorTablero/TableroTileMap"
+@onready var ZonaConstruccion:    Control         = $"Columna derecha/ZonaConstrucción"
+@onready var panelControl:        Control         = $"Columna Izq/PanelDeControl"
+@onready var menuNivel:           OptionButton    = $"Encabezado/SeleccionarNivel"
+@onready var menuNivelCompletado: Control         = $MenuNivelCompletado
+@onready var mensajeInicioNivel:  Control         = $MensajeInicioNivel
+@onready var confirmacionSalir:   Control         = $confirmarcionSalir
+@onready var glosario:            Control         = $Glosario
+
+var GestorNivel:         GestorDeNiveles         = GestorDeNiveles.new()
 var token_cancelacion:int = 0
 var robot_en_movimiento:bool = false
 var tiempo_espera = 1.0
 
 func _ready() -> void:
-	lista_niveles = buscar_niveles()
-	cargar_nivel(0)
+	GestorNivel.registrar_niveles()
+	cargar_nivel(GestorNivel.nivel_actual())
 	cargar_opciones_nivel()
 	_on_boton_velocidad_cambio_velocidad(1)
 
@@ -26,8 +26,8 @@ func _ready() -> void:
 func inicializar_panelControl() -> void:
 	panelControl.actualiza_direccion(tablero.get_direccion_robot())
 	panelControl.actualiza_siguiente_color(tablero.siguiente_color())
-	panelControl.cargar_info_nivel(nivel)
-	panelControl.actualiza_objetivos(nivel)
+	panelControl.cargar_info_nivel(GestorNivel.nivel_actual())
+	panelControl.actualiza_objetivos(GestorNivel.nivel_actual())
 
 func actualizar_panelControl() -> void:
 	panelControl.actualiza_direccion(tablero.get_direccion_robot())
@@ -53,7 +53,7 @@ func _on_boton_velocidad_cambio_velocidad(nivel_velocidad: int) -> void:
 			cambiar_velocidad(0.35, 0.1)
 
 func _on_seleccionar_nivel_item_selected(index: int) -> void:
-	cargar_nivel(index)
+	cargar_nivel(GestorNivel.get_nivel(index))
 
 func _on_seleccionar_robot_item_selected(index: int) -> void:
 	tablero.cambiar_skin_robot(index)
@@ -65,7 +65,7 @@ func _on_menu_nivel_completado_restart_requested() -> void:
 	reinicia_nivel()
 
 func _on_menu_nivel_completado_next_level_requested() -> void:
-	cargar_nivel(nivel.num_nivel+1)
+	cargar_nivel(GestorNivel.siguiente_nivel())
 
 func _on_instrucciones_pressed() -> void:
 	if mensajeInicioNivel.visible:
@@ -79,58 +79,23 @@ func _on_boton_salir_pressed() -> void:
 func _on_glosario_pressed() -> void:
 	glosario.mostrar()
 ###--------------------MÉTODOS DE NIVELES------------------------###	
-func buscar_niveles() -> Array:
-	var archivos_csv: Array = []
-	var carpeta_niveles = "res://Niveles/"
-	
-	var dir = DirAccess.open(carpeta_niveles)
-	if dir == null:
-		print("Error: No se pudo abrir la carpeta ", carpeta_niveles)
-		return archivos_csv
-	
-	dir.list_dir_begin()
-	var nombre_archivo = dir.get_next()
-	
-	while nombre_archivo != "":
-		if not dir.current_is_dir() and nombre_archivo.ends_with(".csv"):
-			# Agrega la ruta completa
-			archivos_csv.append(carpeta_niveles + nombre_archivo)
-		nombre_archivo = dir.get_next()
-	dir.list_dir_end()
-	return archivos_csv
-
 func cargar_opciones_nivel() -> void:
 	menuNivel.clear()
-	
-	if lista_niveles.is_empty():
-		print("Error: No hay niveles para cargar")
-		return
-	
-	for i in range(lista_niveles.size()):
-		var ruta_archivo = lista_niveles[i]
-		var nombre_archivo = ruta_archivo.get_file().get_basename()
-		
-		# Convierte "Nivel0" a "Nivel 0"
-		var nombre_formateado = nombre_archivo.replace("Nivel", "Nivel ")
-		
-		menuNivel.add_item(nombre_formateado)
-		menuNivel.set_item_metadata(i, ruta_archivo)
+	var lista_niveles = GestorNivel.get_lista_nombres_niveles()
+	for nivel in lista_niveles:
+		menuNivel.add_item(nivel)
 
-func cargar_nivel(i:int) -> void:
+func cargar_nivel(nuevo_nivel:Nivel) -> void:
 	token_cancelacion += 1  	# Invalida cualquier ejecución anterior
-	var nuevo_nivel = null
-	if i < lista_niveles.size():
-		nuevo_nivel = Nivel.new(lista_niveles[i])
-
+	GestorNivel.registrar_niveles()
 	#Si estamos cargando un nuevo nivel
-	if nivel != null and nivel.num_nivel != nuevo_nivel.num_nivel:
+	if nuevo_nivel != null:
 		ZonaConstruccion.limpiar_bloques()
 		panelControl.reinicia_boton()
 		mensajeInicioNivel.mostrar_mensaje(nuevo_nivel.descripcion_ejercicio)
-	if nivel == null:
-		mensajeInicioNivel.mostrar_mensaje(nuevo_nivel.descripcion_ejercicio)
-	nivel = nuevo_nivel
-	tablero.configurar_nivel(nivel)
+		glosario.mostrar_pagina_nombre(nuevo_nivel.pagina_glosario)
+	
+	tablero.configurar_nivel(nuevo_nivel)
 	ZonaConstruccion.ocultar_bloques_nivel(tablero.get_bloques_permitidos())
 	inicializar_panelControl()
 	#liberar bloque arrastre si lo hubiera
@@ -138,7 +103,10 @@ func cargar_nivel(i:int) -> void:
 func reinicia_nivel() -> void:
 	robot_en_movimiento = false
 	token_cancelacion += 1  	# Invalida cualquier ejecución anterior
-	cargar_nivel(nivel.num_nivel)
+	GestorNivel.registrar_niveles()
+	tablero.configurar_nivel(GestorNivel.nivel_actual())
+	ZonaConstruccion.ocultar_bloques_nivel(tablero.get_bloques_permitidos())
+	inicializar_panelControl()
 
 func empieza_nivel() -> void:
 	token_cancelacion += 1  	# Invalida cualquier ejecución anterior
@@ -201,6 +169,8 @@ func ejecutar_movimiento_robot (accion:String, token:int) -> void:
 func nivel_completado() -> void:
 	token_cancelacion += 1  	# Invalida cualquier ejecución anterior
 	robot_en_movimiento = false
+	GestorNivel.nivel_completado()
+	
 	salida_mensaje("ENHORABUENA: Nivel completado")	
 	await get_tree().process_frame
 	menuNivelCompletado.mostrar_menu("¡Nivel Completado!")

@@ -1,28 +1,31 @@
-﻿Tipo;Tutorial: Bucles Anidados;;;
-Nivel;6;;;
-TamCuadricula;5;;;
-PosRobot;0;0;;
-NumObjetivos;1;;;
-texto;Meta;4;0;
-SoluciónOrdenada;0;;;
-NumeroDeSoluciones;1;;;
-Meta;;;;
-BloquesUsables;5;;;
-mientras;;;;
-girar;;;;
-avanzar;;;;
-objetivo_alcanzado;;;;
-siguiente_color;;;;
-ColoresSeguros;2;;;
-Blanco;;;;
-Azul;;;;
-ColoresCasillas;;;;
-Blanco;Rojo;Rojo;Rojo;Azul
-Azul;Rojo;Rojo;Rojo;Azul
-Azul;Rojo;Rojo;Rojo;Azul
-Azul;Azul;Azul;Azul;Azul
-Rojo;Rojo;Rojo;Rojo;Rojo
-Descripcion;;;;
-Un bucle dentro de otro bucle. MIENTRAS llegas a la meta otro MIENTRAS te ayuda a moverte por colores seguros. Repite pasos pequeños dentro de pasos grandes para llegar a la meta.;;;;
-Descripcion_corta;;;;
-Arrastra un MIENTRAS dentro de otro MIENTRAS;;;;
+﻿Tipo;Tutorial;;;;;;;;;
+Nombre;Bucles Anidados;;;;;;;;;
+Nivel;6;;;;;;;;;
+TamCuadricula;5;;;;;;;;;
+PosRobot;0;0;;;;;;;;
+DireccionRobot;abajo;;;;;;arriba;abajo;izquierda;derecha
+NumObjetivos;1;;;;;;;;;
+texto;Meta;4;0;;;;;;;
+SoluciónOrdenada;0;;;;;;;;;
+NumeroDeSoluciones;1;;;;;;;;;
+Meta;;;;;;;;;;
+BloquesUsables;5;;;;;;;;;
+mientras;;;;;;;;;;
+girar;;;;;;;;;;
+avanzar;;;;;;;;;;
+objetivo_alcanzado;;;;;;;;;;
+siguiente_color;;;;;;;;;;
+ColoresSeguros;2;;;;;;;;;
+Blanco;;;;;;;;;;
+Azul;;;;;;;;;;
+ColoresCasillas;;;;;;;;;;
+Blanco;Rojo;Rojo;Rojo;Azul;;;;;;
+Azul;Rojo;Rojo;Rojo;Azul;;;;;;
+Azul;Rojo;Rojo;Rojo;Azul;;;;;;
+Azul;Azul;Azul;Azul;Azul;;;;;;
+Rojo;Rojo;Rojo;Rojo;Rojo;;;;;;
+Descripcion;;;;;;;;;;
+Un bucle dentro de otro bucle. MIENTRAS llegas a la meta otro MIENTRAS te ayuda a moverte por colores seguros. Repite pasos pequeños dentro de pasos grandes para llegar a la meta.;;;;;;;;;;
+Descripcion_corta;;;;;;;;;;
+Arrastra un MIENTRAS dentro de otro MIENTRAS;;;;;;;;;;
+Página_glosario;Bucles_anidados;;;;;;;;;

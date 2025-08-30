@@ -1,28 +1,33 @@
-﻿Tipo;Nivel dificil;;;;
-Nivel;14;;;;
-TamCuadricula;5;;;;
-PosRobot;0;2;;;
-NumObjetivos;1;;;;
-texto;Meta;4;2;;
-SoluciónOrdenada;0;;;;
-NumeroDeSoluciones;1;;;;
-Meta;;;;;
-BloquesUsables;6;;;;
-mientras;;;;;
-si_no;;;;;
-girar;;;;;
-avanzar;;;;;
-objetivo_alcanzado;;;;;
-siguiente_color;;;;;
-ColoresSeguros;3;;;;
-Azul;;;;;
-Blanco;;;;;
-Verde;;;;;
-ColoresCasillas;;;;;
-Negro;Negro;Negro;Negro;Negro;Negro
-Negro;Azul;Azul;Azul;Negro;Negro
-Azul;Azul;Rojo;Azul;Azul;Azul
-Rojo;Rojo;Rojo;Rojo;Rojo;Rojo
-Rojo;Rojo;Rojo;Rojo;Rojo;Rojo
-Descripcion;;;;;
-Usa MIENTRAS para repetir y SI NO para avanzar solo cuando no haya rojo delante. Si hay rojo gira;;;;;
+﻿Tipo;Bonus;;;;;;;;;
+Nombre;Nivel dificil;;;;;;;;;
+Nivel;14;;;;;;;;;
+TamCuadricula;5;;;;;;;;;
+PosRobot;0;2;;;;;;;;
+DireccionRobot;derecha;;;;;;arriba;abajo;izquierda;derecha
+NumObjetivos;1;;;;;;;;;
+texto;Meta;4;2;;;;;;;
+SoluciónOrdenada;0;;;;;;;;;
+NumeroDeSoluciones;1;;;;;;;;;
+Meta;;;;;;;;;;
+BloquesUsables;6;;;;;;;;;
+mientras;;;;;;;;;;
+si_no;;;;;;;;;;
+girar;;;;;;;;;;
+avanzar;;;;;;;;;;
+objetivo_alcanzado;;;;;;;;;;
+siguiente_color;;;;;;;;;;
+ColoresSeguros;3;;;;;;;;;
+Azul;;;;;;;;;;
+Blanco;;;;;;;;;;
+Verde;;;;;;;;;;
+ColoresCasillas;;;;;;;;;;
+Negro;Negro;Negro;Negro;Negro;Negro;;;;;
+Negro;Azul;Azul;Azul;Negro;Negro;;;;;
+Azul;Azul;Rojo;Azul;Azul;Azul;;;;;
+Rojo;Rojo;Rojo;Rojo;Rojo;Rojo;;;;;
+Rojo;Rojo;Rojo;Rojo;Rojo;Rojo;;;;;
+Descripcion;;;;;;;;;;
+Usa MIENTRAS para repetir y SI NO para avanzar solo cuando no haya rojo delante. Si hay rojo gira;;;;;;;;;;
+Descripcion_corta;;;;;;;;;;
+Usa MIENTRAS para repetir y SI NO para avanzar solo cuando no haya rojo delante. Si hay rojo gira;;;;;;;;;;
+Página_glosario;NULL;;;;;;;;;

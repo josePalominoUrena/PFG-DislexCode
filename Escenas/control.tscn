@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bbxsvv6cyb5qj"]
+[gd_scene load_steps=25 format=3 uid="uid://bbxsvv6cyb5qj"]
 
 [ext_resource type="Script" path="res://Scripts/controlDeNivel.gd" id="1_gnj10"]
 [ext_resource type="Texture2D" uid="uid://cblgnlm4krpjf" path="res://Assets/Interfaz/fondo titulo.png" id="2_j3nby"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://caww7p5rrs2br" path="res://Assets/Interfaz/titulo2.png" id="3_bu0tu"]
 [ext_resource type="Texture2D" uid="uid://4q5uignih5r8" path="res://Assets/Interfaz/fondo titulo_derecha.png" id="3_c4gmh"]
 [ext_resource type="Texture2D" uid="uid://caitb2jcwd5ni" path="res://Assets/Robot/SpriteRobot1_icon.png" id="4_ur6qj"]
+[ext_resource type="FontFile" uid="uid://dbtmwww0aewgg" path="res://Assets/Fuentes/VT323-Regular.ttf" id="5_3qrtq"]
 [ext_resource type="PackedScene" uid="uid://4u3ukc7owoei" path="res://Escenas/PanelDeControl/boton_velocidad.tscn" id="5_c2nl4"]
 [ext_resource type="PackedScene" uid="uid://dlwnrjvnsv3e2" path="res://Escenas/PanelDeControl/panel_de_control.tscn" id="6_3mmcu"]
 [ext_resource type="Texture2D" uid="uid://crbv0riakv3sk" path="res://Assets/Tiles/tile set_basico_icon.png" id="7_i5wq1"]
@@ -75,18 +76,11 @@ metadata/_edit_lock_ = true
 
 [node name="SeleccionarNivel" type="OptionButton" parent="Encabezado"]
 layout_mode = 0
-offset_left = 864.895
-offset_top = 13.0
-offset_right = 994.895
-offset_bottom = 44.0
-item_count = 4
-popup/item_0/text = "Nivel 0"
-popup/item_1/text = "Nivel 1"
-popup/item_1/id = 1
-popup/item_2/text = "Nivel 2"
-popup/item_2/id = 2
-popup/item_3/text = "Nivel 3"
-popup/item_3/id = 3
+offset_left = 796.142
+offset_top = 8.0
+offset_right = 926.142
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("5_3qrtq")
 
 [node name="SeleccionarRobot" type="OptionButton" parent="Encabezado"]
 z_index = 1

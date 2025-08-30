@@ -1,28 +1,31 @@
-﻿Tipo;Tutorial: Bloque Si No;;;
-Nivel;8;;;
-TamCuadricula;5;;;
-PosRobot;0;1;;
-NumObjetivos;1;;;
-texto;Meta;3;4;
-SoluciónOrdenada;0;;;
-NumeroDeSoluciones;1;;;
-Meta;;;;
-BloquesUsables;6;;;
-mientras;;;;
-si_no;;;;
-girar;;;;
-avanzar;;;;
-objetivo_alcanzado;;;;
-siguiente_color;;;;
-ColoresSeguros;1;;;
-Azul;;;;
-ColoresCasillas;;;;
-Rojo;Rojo;Rojo;Rojo;Rojo
-Azul;Azul;Azul;Azul;Rojo
-Rojo;Rojo;Rojo;Azul;Rojo
-Rojo;Rojo;Rojo;Azul;Rojo
-Rojo;Rojo;Rojo;Azul;Rojo
-Descripcion;;;;
-Usa MIENTRAS con SI NO para moverte. SI NO hay AZUL delante GIRA y busca otra dirección. Repite hasta llegar a la meta. Mira decide avanza o gira.;;;;
-Descripcion_corta;;;;
-Si NO es seguro: gira.;;;;
+﻿Tipo;Tutorial;;;;;;;;;
+Nombre;Bloque Si No;;;;;;;;;
+Nivel;8;;;;;;;;;
+TamCuadricula;5;;;;;;;;;
+PosRobot;0;1;;;;;;;;
+DireccionRobot;derecha;;;;;;arriba;abajo;izquierda;derecha
+NumObjetivos;1;;;;;;;;;
+texto;Meta;3;4;;;;;;;
+SoluciónOrdenada;0;;;;;;;;;
+NumeroDeSoluciones;1;;;;;;;;;
+Meta;;;;;;;;;;
+BloquesUsables;6;;;;;;;;;
+mientras;;;;;;;;;;
+si_no;;;;;;;;;;
+girar;;;;;;;;;;
+avanzar;;;;;;;;;;
+objetivo_alcanzado;;;;;;;;;;
+siguiente_color;;;;;;;;;;
+ColoresSeguros;1;;;;;;;;;
+Azul;;;;;;;;;;
+ColoresCasillas;;;;;;;;;;
+Rojo;Rojo;Rojo;Rojo;Rojo;;;;;;
+Azul;Azul;Azul;Azul;Rojo;;;;;;
+Rojo;Rojo;Rojo;Azul;Rojo;;;;;;
+Rojo;Rojo;Rojo;Azul;Rojo;;;;;;
+Rojo;Rojo;Rojo;Azul;Rojo;;;;;;
+Descripcion;;;;;;;;;;
+Usa MIENTRAS con SI NO para moverte. SI NO hay AZUL delante GIRA y busca otra dirección. Repite hasta llegar a la meta. Mira decide avanza o gira.;;;;;;;;;;
+Descripcion_corta;;;;;;;;;;
+Si NO es seguro: gira.;;;;;;;;;;
+Página_glosario;Si_no;;;;;;;;;

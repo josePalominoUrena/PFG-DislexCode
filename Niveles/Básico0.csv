@@ -1,23 +1,25 @@
-﻿Tipo;Tutorial: bloque Avanzar;;
-Nivel;0;;
-TamCuadricula;4;;
-PosRobot;0;1;
-NumObjetivos;1;;
-texto;Meta;3;1
-SoluciónOrdenada;0;;
-NumeroDeSoluciones;1;;
-Meta;;;
-BloquesUsables;1;;
-avanzar;;;
-ColoresSeguros;1;;
-Azul;;;
-ColoresCasillas;0;;
-Negro;Negro;Negro;Negro
-Azul;Azul;Azul;Azul
-Negro;Negro;Negro;Negro
-Negro;Negro;Negro;Negro
-Descripcion;;;
-El robot da un paso hacia donde mira. Usa AVANZAR para moverte a la siguiente casilla. Primero mira luego avanza. Avanzar es caminar un paso seguro.;;;
-Descripcion_corta;;;
-Utiliza el BLOQUE AVANZAR para llegar a la meta;;;
-Página_glosario;Avanzar;;
+﻿Tipo;Tutorial;;;;;;;;;
+Nombre;Bloque Avanzar;;;;;;;;;
+Nivel;0;;;;;;;;;
+TamCuadricula;4;;;;;;;;;
+PosRobot;0;1;;;;;;;;
+DireccionRobot;derecha;;;;;;arriba;abajo;izquierda;derecha
+NumObjetivos;1;;;;;;;;;
+texto;Meta;3;1;;;;;;;
+SoluciónOrdenada;0;;;;;;;;;
+NumeroDeSoluciones;1;;;;;;;;;
+Meta;;;;;;;;;;
+BloquesUsables;1;;;;;;;;;
+avanzar;;;;;;;;;;
+ColoresSeguros;1;;;;;;;;;
+Azul;;;;;;;;;;
+ColoresCasillas;0;;;;;;;;;
+Negro;Negro;Negro;Negro;;;;;;;
+Azul;Azul;Azul;Azul;;;;;;;
+Negro;Negro;Negro;Negro;;;;;;;
+Negro;Negro;Negro;Negro;;;;;;;
+Descripcion;;;;;;;;;;
+El robot da un paso hacia donde mira. Usa AVANZAR para moverte a la siguiente casilla. Primero mira luego avanza. Avanzar es caminar un paso seguro.;;;;;;;;;;
+Descripcion_corta;;;;;;;;;;
+Utiliza el BLOQUE AVANZAR para llegar a la meta;;;;;;;;;;
+Página_glosario;Avanzar;;;;;;;;;

@@ -1,29 +1,32 @@
-﻿Tipo;Tutorial: Siguiente color;;;
-Nivel;5;;;
-TamCuadricula;5;;;
-PosRobot;0;1;;
-NumObjetivos;2;;;
-texto;Meta1;3;1;
-texto;Meta2;3;4;
-SoluciónOrdenada;0;;;
-NumeroDeSoluciones;2;;;
-Meta1;;;;
-Meta2;;;;
-BloquesUsables;4;;;
-avanzar;;;;
-girar;;;;
-mientras;;;;
-siguiente_color;;;;
-ColoresSeguros;2;;;
-Verde;;;;
-Azul;;;;
-ColoresCasillas;;;;
-Rojo;Rojo;Rojo;Rojo;Rojo
-Azul;Azul;Azul;Azul;Rojo
-Rojo;Rojo;Rojo;Verde;Rojo
-Rojo;Rojo;Rojo;Verde;Rojo
-Rojo;Rojo;Rojo;Verde;Rojo
-Descripcion;;;;
-SIGUIENTE COLOR mira la casilla de adelante. Como unos ojos mágicos ve si es azul roja o verde. Arrástralo dentro de MIENTRAS para que el robot vaya por el camino seguro. ROJO = PELIGRO;;;;
-Descripcion_corta;;;;
-Usa SIGUENTE COLOR para evitar ir por el camino ROJO;;;;
+﻿Tipo;Tutorial;;;;;;;;;
+Nombre;Siguiente color;;;;;;;;;
+Nivel;5;;;;;;;;;
+TamCuadricula;5;;;;;;;;;
+PosRobot;0;1;;;;;;;;
+DireccionRobot;derecha;;;;;;arriba;abajo;izquierda;derecha
+NumObjetivos;2;;;;;;;;;
+texto;Meta1;3;1;;;;;;;
+texto;Meta2;3;4;;;;;;;
+SoluciónOrdenada;0;;;;;;;;;
+NumeroDeSoluciones;2;;;;;;;;;
+Meta1;;;;;;;;;;
+Meta2;;;;;;;;;;
+BloquesUsables;4;;;;;;;;;
+avanzar;;;;;;;;;;
+girar;;;;;;;;;;
+mientras;;;;;;;;;;
+siguiente_color;;;;;;;;;;
+ColoresSeguros;2;;;;;;;;;
+Verde;;;;;;;;;;
+Azul;;;;;;;;;;
+ColoresCasillas;;;;;;;;;;
+Rojo;Rojo;Rojo;Rojo;Rojo;;;;;;
+Azul;Azul;Azul;Azul;Rojo;;;;;;
+Rojo;Rojo;Rojo;Verde;Rojo;;;;;;
+Rojo;Rojo;Rojo;Verde;Rojo;;;;;;
+Rojo;Rojo;Rojo;Verde;Rojo;;;;;;
+Descripcion;;;;;;;;;;
+SIGUIENTE COLOR mira la casilla de adelante. Como unos ojos mágicos ve si es azul roja o verde. Arrástralo dentro de MIENTRAS para que el robot vaya por el camino seguro. ROJO = PELIGRO;;;;;;;;;;
+Descripcion_corta;;;;;;;;;;
+Usa SIGUENTE COLOR para evitar ir por el camino ROJO;;;;;;;;;;
+Página_glosario;Siguiente_color;;;;;;;;;

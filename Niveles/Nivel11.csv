@@ -1,23 +1,25 @@
-﻿Tipo;Vocal A;;;
-Nivel;11;;;
-TamCuadricula;5;;;
-PosRobot;3;3;;
-NumObjetivos;2;;;
-imagen;perro.png;3;0;
-imagen;pato.png;0;3;
-SoluciónOrdenada;0;;;
-NumeroDeSoluciones;1;;;
-pato.png;;;;
-BloquesUsables;0;;;
-ColoresSeguros;3;;;
-Blanco;;;;
-Azul;;;;
-Verde;;;;
-ColoresCasillas;;;;
-Rojo;Rojo;Rojo;Verde;Rojo
-Rojo;Rojo;Rojo;Verde;Rojo
-Rojo;Rojo;Rojo;Verde;Rojo
-Azul;Azul;Azul;Blanco;Rojo
-Rojo;Rojo;Rojo;Rojo;Rojo
-Descripcion;;;;
-Llega al objetivo que tenga la letra A;;;;
+﻿Tipo;ImagenConLetra;;;;;;;;;
+Nombre;Vocal A;;;;;;;;;
+Nivel;11;;;;;;;;;
+TamCuadricula;5;;;;;;;;;
+PosRobot;3;3;;;;;;;;
+DireccionRobot;derecha;;;;;;arriba;abajo;izquierda;derecha
+NumObjetivos;2;;;;;;;;;
+imagen;perro.png;3;0;;;;;;;
+imagen;pato.png;0;3;;;;;;;
+SoluciónOrdenada;0;;;;;;;;;
+NumeroDeSoluciones;1;;;;;;;;;
+pato.png;;;;;;;;;;
+BloquesUsables;0;;;;;;;;;
+ColoresSeguros;3;;;;;;;;;
+Blanco;;;;;;;;;;
+Azul;;;;;;;;;;
+Verde;;;;;;;;;;
+ColoresCasillas;;;;;;;;;;
+Rojo;Rojo;Rojo;Verde;Rojo;;;;;;
+Rojo;Rojo;Rojo;Verde;Rojo;;;;;;
+Rojo;Rojo;Rojo;Verde;Rojo;;;;;;
+Azul;Azul;Azul;Blanco;Rojo;;;;;;
+Rojo;Rojo;Rojo;Rojo;Rojo;;;;;;
+Descripcion;;;;;;;;;;
+Llega al objetivo que tenga la letra A;;;;;;;;;;

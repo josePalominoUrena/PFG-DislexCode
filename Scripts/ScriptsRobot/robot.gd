@@ -23,9 +23,9 @@ func configurar_robot(tablero:Node2D, tile_map: TileMap, nivel: Nivel):
 	tile_map_ref = tile_map
 	nivel_ref = nivel
 	posicion_actual = nivel.posicion_inicial_robot
-	cambiar_sprite(num_textura, "_derecha")
-	direccion_actual = DIRECCION.tipo.DERECHA
-
+	direccion_actual = nivel.direccion_inicial_robot
+	actualizar_orientacion()
+	
 	actualizar_escala()
 	centrar_en_celda(posicion_actual)
 	
@@ -50,37 +50,29 @@ func crear_tween(_inicio: Vector2, final: Vector2):
 func girar_derecha ():
 	match direccion_actual:
 		DIRECCION.tipo.ARRIBA:
-			cambiar_sprite(num_textura, "_derecha")
 			direccion_actual = DIRECCION.tipo.DERECHA
 		DIRECCION.tipo.ABAJO:
-			cambiar_sprite(num_textura, "_izquierda")
 			direccion_actual = DIRECCION.tipo.IZQUIERDA
 		DIRECCION.tipo.DERECHA:
-			cambiar_sprite(num_textura, "_abajo")
 			direccion_actual = DIRECCION.tipo.ABAJO
 		DIRECCION.tipo.IZQUIERDA:
-			cambiar_sprite(num_textura, "_arriba")
 			direccion_actual = DIRECCION.tipo.ARRIBA
 		_:
 			print("Error: Dirección no existe", direccion_actual)
-
+	actualizar_orientacion()
 func girar_izquierda ():
 	match direccion_actual:
 		DIRECCION.tipo.ARRIBA:
-			cambiar_sprite(num_textura, "_izquierda")
 			direccion_actual = DIRECCION.tipo.IZQUIERDA
 		DIRECCION.tipo.ABAJO:
-			cambiar_sprite(num_textura, "_derecha")
 			direccion_actual = DIRECCION.tipo.DERECHA
 		DIRECCION.tipo.DERECHA:
-			cambiar_sprite(num_textura, "_arriba")
 			direccion_actual = DIRECCION.tipo.ARRIBA
 		DIRECCION.tipo.IZQUIERDA:
-			cambiar_sprite(num_textura, "_abajo")
 			direccion_actual = DIRECCION.tipo.ABAJO
 		_:
 			print("Error: Dirección no existe", direccion_actual)
-
+	actualizar_orientacion()
 # Mover robot una casilla hacia la dirección	
 func avanzar () -> int:
 	var casilla = posicion_actual
@@ -112,8 +104,18 @@ func calcular_direccion(destino: Vector2) -> DIRECCION.tipo:
 	if delta.y > 0: return DIRECCION.tipo.ABAJO
 	return DIRECCION.tipo.ARRIBA
 
-func actualizar_orientacion(nueva_dir: DIRECCION.tipo):
+func actualizar_orientacion(nueva_dir: DIRECCION.tipo = direccion_actual):
 	direccion_actual = nueva_dir
+	match direccion_actual:
+		DIRECCION.tipo.ARRIBA:
+			cambiar_sprite(num_textura, "_arriba")
+		DIRECCION.tipo.ABAJO:
+			cambiar_sprite(num_textura, "_abajo")
+		DIRECCION.tipo.DERECHA:
+			cambiar_sprite(num_textura, "_derecha")
+		DIRECCION.tipo.IZQUIERDA:
+			cambiar_sprite(num_textura, "_izquierda")
+
 
 ###--------------------MÉTODOS DE LA TEXTURA------------------------###	
 # Cambia el sprite del robot

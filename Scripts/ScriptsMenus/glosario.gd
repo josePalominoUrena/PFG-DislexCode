@@ -24,6 +24,7 @@ func mostrar_pagina_nombre(nombre:String):
 	for pagina in paginas:
 		if is_instance_valid(pagina):
 			if pagina.name == nombre:
+				mostrar()
 				mostrar_pagina(i)
 				return
 		i += 1
