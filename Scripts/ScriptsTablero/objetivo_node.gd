@@ -23,12 +23,12 @@ func _ready():
 	opciones_texto(color_texto, fuente, tamano_fuente)
 
 func centrar_elementos():
-	$TextureRect.position = -$TextureRect.size / 2
+	$TextureRect.position = -$TextureRect.size / 1.3
 	$Label.position = -$Label.size / 2
 	
 func ajustar_tamano():
 
-	var base_size = 50  # Tamaño base de referencia
+	var base_size = 70 # Tamaño base de referencia
 	var textura = $TextureRect.texture
 	if textura:
 		var ratio = textura.get_width() / textura.get_height()

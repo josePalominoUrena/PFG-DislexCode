@@ -100,7 +100,7 @@ func set_imagen(objetivo:Objetivo):
 	# Configurar textura
 	imagen_objetivo.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 
-
+"res://Assets/Objetivos/chess/B_Bishop.png"
 #Métodos para el menú de clicks
 func _input(event: InputEvent):
 	if !esta_en_lienzo:
