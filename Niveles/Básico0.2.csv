@@ -1,0 +1,24 @@
+﻿Tipo;Tutorial;;;;;;;;;
+Nombre;Dirección;;;;;;;;;
+Nivel;0;;;;;;;;;
+TamCuadricula;3;;;;;;;;;
+PosRobot;1;0;;;;;;;;
+DireccionRobot;abajo;;;;;;arriba;abajo;izquierda;derecha
+NumObjetivos;1;;;;;;;;;
+texto;Meta;1;2;;;;;;;
+SoluciónOrdenada;0;;;;;;;;;
+NumeroDeSoluciones;1;;;;;;;;;
+Meta;;;;;;;;;;
+BloquesUsables;1;;;;;;;;;
+avanzar;;;;;;;;;;
+ColoresSeguros;1;;;;;;;;;
+Azul;;;;;;;;;;
+ColoresCasillas;0;;;;;;;;;
+Negro;Azul;Negro;;;;;;;;
+Negro;Azul;Negro;;;;;;;;
+Negro;Azul;Negro;;;;;;;;
+Descripcion;;;;;;;;;;
+El Robot se moverá hacia la dirección donde mire.           Ayúdate de la brújula.;;;;;;;;;;
+Descripcion_corta;;;;;;;;;;
+Utiliza el BLOQUE AVANZAR para llegar a la meta;;;;;;;;;;
+Página_glosario;Robot_dirección;;;;;;;;;

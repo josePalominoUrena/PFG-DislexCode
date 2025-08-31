@@ -1,0 +1,24 @@
+﻿Tipo;Tutorial;;;;;;;;;
+Nombre;Bloque Avanzar;;;;;;;;;
+Nivel;0;;;;;;;;;
+TamCuadricula;3;;;;;;;;;
+PosRobot;0;1;;;;;;;;
+DireccionRobot;derecha;;;;;;arriba;abajo;izquierda;derecha
+NumObjetivos;1;;;;;;;;;
+texto;Meta;1;1;;;;;;;
+SoluciónOrdenada;0;;;;;;;;;
+NumeroDeSoluciones;1;;;;;;;;;
+Meta;;;;;;;;;;
+BloquesUsables;1;;;;;;;;;
+avanzar;;;;;;;;;;
+ColoresSeguros;1;;;;;;;;;
+Azul;;;;;;;;;;
+ColoresCasillas;0;;;;;;;;;
+Negro;Negro;Negro;;;;;;;;
+Azul;Azul;Negro;;;;;;;;
+Negro;Negro;Negro;;;;;;;;
+Descripcion;;;;;;;;;;
+Arrastra un bloque AVANZAR hacia INICIO y ¡dale a empezar!;;;;;;;;;;
+Descripcion_corta;;;;;;;;;;
+El bloque AVANZAR moverá al Robot;;;;;;;;;;
+Página_glosario;Arrastrar;;;;;;;;;

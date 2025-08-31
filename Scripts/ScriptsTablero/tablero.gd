@@ -158,7 +158,7 @@ func configurar_robot() -> void:
 
 #devolver si el robot ha salido del tablero o si ha encontrado un objetivo
 func avanzar_robot ():
-	robot.avanzar()
+	await robot.avanzar()
 
 func girar_robot_izquierda ():
 	robot.girar_izquierda()

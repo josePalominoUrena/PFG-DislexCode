@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c8p8pftqy1pmv"]
+[gd_scene load_steps=17 format=3 uid="uid://c8p8pftqy1pmv"]
 
 [ext_resource type="Texture2D" uid="uid://dc802vnbvuca6" path="res://Assets/Menus/libro/libro_abierto.png" id="1_1wjwa"]
 [ext_resource type="Script" path="res://Scripts/ScriptsMenus/glosario.gd" id="1_i1tst"]
@@ -13,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://c5tskgsej7in2" path="res://Assets/Menus/libro/pag7.png" id="11_085q3"]
 [ext_resource type="Texture2D" uid="uid://dwg1fkepdk22y" path="res://Assets/Menus/libro/pag8.png" id="12_kvvpw"]
 [ext_resource type="Texture2D" uid="uid://cbl3ferkpdwok" path="res://Assets/Menus/libro/pag9.png" id="13_gwhoi"]
+[ext_resource type="Texture2D" uid="uid://b67at80hiia2f" path="res://Assets/Menus/libro/pag10.png" id="14_c4t6v"]
+[ext_resource type="Texture2D" uid="uid://5rgcun5k22hi" path="res://Assets/Menus/libro/pag11.png" id="15_8lfl7"]
+[ext_resource type="Texture2D" uid="uid://cp50lvdugfxqw" path="res://Assets/Menus/libro/pag12.png" id="16_ukx38"]
 
 [node name="Glosario" type="Control" node_paths=PackedStringArray("paginas")]
 custom_minimum_size = Vector2(800, 500)
@@ -27,7 +30,7 @@ offset_bottom = -221.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i1tst")
-paginas = [NodePath("Arrastrar"), NodePath("Robot"), NodePath("Avanzar"), NodePath("Robot_dirección"), NodePath("Girar"), NodePath("Casillas"), NodePath("Mientras"), NodePath("Objetivo_alcanzado"), NodePath("Siguiente_color")]
+paginas = [NodePath("Arrastrar"), NodePath("Robot"), NodePath("Avanzar"), NodePath("Robot_dirección"), NodePath("Girar"), NodePath("Casillas"), NodePath("Mientras"), NodePath("Objetivo_alcanzado"), NodePath("Siguiente_color"), NodePath("Bucles_anidados"), NodePath("Si"), NodePath("Si_no")]
 metadata/_edit_lock_ = true
 
 [node name="LibroAbierto" type="Sprite2D" parent="."]
@@ -477,15 +480,15 @@ scale = Vector2(1.757, 1)
 [node name="izquierda" type="PanelContainer" parent="Bucles_anidados"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = -7.96813
-offset_top = 2.0
-offset_right = 182.032
-offset_bottom = 382.0
+offset_left = 1.70746
+offset_top = 8.0
+offset_right = 191.708
+offset_bottom = 388.0
 
 [node name="Pag1" type="Sprite2D" parent="Bucles_anidados/izquierda"]
-position = Vector2(106.721, 303.805)
+position = Vector2(103.586, 280)
 scale = Vector2(0.102998, 0.194313)
-texture = ExtResource("11_085q3")
+texture = ExtResource("14_c4t6v")
 
 [node name="derecha" type="PanelContainer" parent="Bucles_anidados"]
 self_modulate = Color(1, 1, 1, 0)
@@ -500,12 +503,15 @@ layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
-text = "MIENTRAS significa: 
-“repite esto siempre que la condición se cumpla”
+text = "Puedes introducir  un MIENTRAS dentro de otro MIENTRAS.
 
-Por ejemplo: mientras el robot no haya llegado a la meta, seguir avanzando.
+El MIENTRAS grande te llevará a la meta y el pequeño podrá evitar que se salga del camino.
 
-MIENTRAS [OBJETIVO ALCANZADO] 
+
+MIENTRAS 
+[OBJETIVO ALCANZADO] 
+	MIENTRAS	
+	[SIGUIENTE COLOR] 
 	AVANZAR"
 
 [node name="Si" type="Panel" parent="."]
@@ -527,9 +533,9 @@ offset_right = 182.032
 offset_bottom = 382.0
 
 [node name="Pag1" type="Sprite2D" parent="Si/izquierda"]
-position = Vector2(106.721, 303.805)
+position = Vector2(114.969, 356)
 scale = Vector2(0.102998, 0.194313)
-texture = ExtResource("11_085q3")
+texture = ExtResource("15_8lfl7")
 
 [node name="derecha" type="PanelContainer" parent="Si"]
 self_modulate = Color(1, 1, 1, 0)
@@ -544,13 +550,16 @@ layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
-text = "MIENTRAS significa: 
-“repite esto siempre que la condición se cumpla”
+text = "El bloque SI hará una acción cuando su condición sea verda.
 
-Por ejemplo: mientras el robot no haya llegado a la meta, seguir avanzando.
+SI [SIGUIENTE COLOR]
+	AVANZA
 
-MIENTRAS [OBJETIVO ALCANZADO] 
-	AVANZAR"
+
+Si la siguiente casilla es azul, el robot avanzará 
+
+Si la siguiente casilla NO
+es azul, el robot no avanzará"
 
 [node name="Si_no" type="Panel" parent="."]
 visible = false
@@ -565,15 +574,14 @@ scale = Vector2(1.757, 1)
 [node name="izquierda" type="PanelContainer" parent="Si_no"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = -7.96813
-offset_top = 2.0
-offset_right = 182.032
-offset_bottom = 382.0
+offset_top = 55.0
+offset_right = 190.0
+offset_bottom = 435.0
 
 [node name="Pag1" type="Sprite2D" parent="Si_no/izquierda"]
 position = Vector2(106.721, 303.805)
 scale = Vector2(0.102998, 0.194313)
-texture = ExtResource("11_085q3")
+texture = ExtResource("16_ukx38")
 
 [node name="derecha" type="PanelContainer" parent="Si_no"]
 self_modulate = Color(1, 1, 1, 0)
@@ -588,13 +596,16 @@ layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
-text = "MIENTRAS significa: 
-“repite esto siempre que la condición se cumpla”
+text = "El bloque SI NO hará una acción cuando su condición sea falsa.
 
-Por ejemplo: mientras el robot no haya llegado a la meta, seguir avanzando.
+SI NO [SIGUIENTE COLOR]
+	AVANZA
 
-MIENTRAS [OBJETIVO ALCANZADO] 
-	AVANZAR"
+
+Si la siguiente casilla es azul, el robot  NO avanzará 
+
+Si la siguiente casilla NO
+es azul, el robot Si avanzará"
 
 [connection signal="pressed" from="cerrar" to="." method="_on_cerrar_pressed"]
 [connection signal="pressed" from="SiguientePagina" to="." method="_on_siguiente_pagina_pressed"]

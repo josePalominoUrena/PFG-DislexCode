@@ -77,7 +77,7 @@ func iniciar_ejecucion (Token:int) -> void:
 	bloque_inicio.ejecutar(Token)
 
 func avanzar(Token:int) -> void:
-	control.ejecutar_movimiento_robot("Avanzar", Token)
+	await control.ejecutar_movimiento_robot("Avanzar", Token)
 
 func girar(direccion:String, Token:int) -> void:
 	var giro = "Girar_" + direccion

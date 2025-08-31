@@ -38,7 +38,7 @@ func mover_a_casilla(grid_destino: Vector2):
 	var pos_inicio = global_position
 	var pos_final = tile_map_ref.to_global(tile_map_ref.map_to_local(grid_destino))
 	
-	crear_tween(pos_inicio, pos_final)
+	await crear_tween(pos_inicio, pos_final)
 	posicion_actual = grid_destino
 
 func crear_tween(_inicio: Vector2, final: Vector2):
@@ -92,7 +92,7 @@ func avanzar () -> int:
 		_:
 			print("Error: Dirección no existe", direccion_actual)
 	if tablero_ref.siguiente_casilla_valida ():
-		mover_a_casilla(casilla)
+		await mover_a_casilla(casilla)
 		return 1
 	else:
 		return 0	

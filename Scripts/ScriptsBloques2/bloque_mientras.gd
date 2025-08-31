@@ -28,12 +28,13 @@ func ejecutar(Token:int):
 	if bloque_actual == null and arg != null:
 		salida_mensaje("bucle infinito")
 	while arg != null and await arg.ejecutar(Token) and await zona_construccion.robot_en_movimiento():
-		await get_tree().create_timer(0.1).timeout
+		#await get_tree().create_timer(0.2).timeout
 		if bloque_actual != null:
 			if bloque_actual.has_method("ejecutar") and zona_construccion.robot_en_movimiento():
 				await bloque_actual.ejecutar(Token)
-				
+				await get_tree().process_frame
 	siguiente = get_siguiente()
 	if siguiente != null and zona_construccion.robot_en_movimiento():
 		if siguiente.has_method("ejecutar"):
+			await get_tree().process_frame
 			await siguiente.ejecutar(Token)

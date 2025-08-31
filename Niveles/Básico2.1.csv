@@ -1,5 +1,5 @@
-﻿Tipo;Tutorial;;;;;;;;;
-Nombre;Bloque Girar;;;;;;;;;
+﻿Tipo;Conciencia Silábica;;;;;;;;;
+Nombre;Forma la palabra;;;;;;;;;
 Nivel;1;;;;;;;;;
 TamCuadricula;3;;;;;;;;;
 PosRobot;0;0;;;;;;;;
@@ -22,7 +22,7 @@ Verde;Azul;Azul;;;;;;;;
 Rojo;Rojo;Azul;;;;;;;;
 Rojo;Rojo;Azul;;;;;;;;
 Descripcion;;;;;;;;;;
-El robot cambia de dirección sin moverse. Puedes GIRAR a la derecha o a la izquierda. GIRA para buscar camino seguro. Primero GIRA. luego AVANZA. Así evitas casillas peligrosas.;;;;;;;;;;
+Ordena las sílabas para formar una palabra. AVANZA y GIRA para buscar camino seguro.;;;;;;;;;;
 Descripcion_corta;;;;;;;;;;
-Usa GIRAR para evitar las casillas ROJAS y llegar a la meta;;;;;;;;;;
-Página_glosario;Girar;;;;;;;;;
+Usa GIRAR para evitar las casillas ROJAS y conseguir las sílabas en orden;;;;;;;;;;
+Página_glosario;;;;;;;;;;

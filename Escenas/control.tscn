@@ -76,11 +76,12 @@ metadata/_edit_lock_ = true
 
 [node name="SeleccionarNivel" type="OptionButton" parent="Encabezado"]
 layout_mode = 0
-offset_left = 796.142
-offset_top = 8.0
-offset_right = 926.142
-offset_bottom = 39.0
+offset_left = 792.156
+offset_top = 2.0
+offset_right = 922.156
+offset_bottom = 47.0
 theme_override_fonts/font = ExtResource("5_3qrtq")
+theme_override_font_sizes/font_size = 20
 
 [node name="SeleccionarRobot" type="OptionButton" parent="Encabezado"]
 z_index = 1

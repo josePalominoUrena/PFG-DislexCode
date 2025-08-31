@@ -14,7 +14,8 @@ extends Control
 var GestorNivel:         GestorDeNiveles         = GestorDeNiveles.new()
 var token_cancelacion:int = 0
 var robot_en_movimiento:bool = false
-var tiempo_espera = 1.0
+var tiempo_espera = 0.0
+var en_ejecución:bool = false
 
 func _ready() -> void:
 	GestorNivel.registrar_niveles()
@@ -50,7 +51,7 @@ func _on_boton_velocidad_cambio_velocidad(nivel_velocidad: int) -> void:
 		1:
 			cambiar_velocidad(1.0, 0.5)
 		2:
-			cambiar_velocidad(0.35, 0.1)
+			cambiar_velocidad(0.2, 0.2)
 
 func _on_seleccionar_nivel_item_selected(index: int) -> void:
 	cargar_nivel(GestorNivel.get_nivel(index))
@@ -98,6 +99,7 @@ func cargar_nivel(nuevo_nivel:Nivel) -> void:
 	tablero.configurar_nivel(nuevo_nivel)
 	ZonaConstruccion.ocultar_bloques_nivel(tablero.get_bloques_permitidos())
 	inicializar_panelControl()
+	menuNivel.selected = nuevo_nivel.num_nivel
 	#liberar bloque arrastre si lo hubiera
 
 func reinicia_nivel() -> void:
@@ -115,17 +117,21 @@ func empieza_nivel() -> void:
 
 ###--------------------MÉTODOS DE COMUNICACIÓN TABLERO <-> BLOQUES ------------------------###
 func ejecutar_movimiento_robot (accion:String, token:int) -> void:
-	
-	await get_tree().process_frame
+	while en_ejecución and robot_en_movimiento:
+		await get_tree().process_frame
+		pass
+	en_ejecución = true
 	if token != token_cancelacion or !robot_en_movimiento:
+		en_ejecución = false
 		return #cancelar ejecución
 	salida_mensaje(accion)
 	match accion:
 		"Avanzar":
 			if not tablero.siguiente_casilla_valida():
 				matar_robot("Por salirse del tablero")
+				en_ejecución = false
 				return
-			tablero.avanzar_robot()
+			await tablero.avanzar_robot()
 			await get_tree().create_timer(tiempo_espera).timeout
 		"Girar_Izquierda":
 			tablero.girar_robot_izquierda()
@@ -135,16 +141,19 @@ func ejecutar_movimiento_robot (accion:String, token:int) -> void:
 			if tablero.nivel_completado():
 				await get_tree().process_frame
 				nivel_completado()
+				en_ejecución = false
 				return
 			#Si no se ha completado el nivel y nos hemos quedado sin movimientos el jugador ha perdido
 			if !tablero.nivel_completado():
 				matar_robot("Por agotar movimientos")
+				await get_tree().process_frame
 		_:
 			print("Error: Movimiento no reconocido: %s" % accion)
 	actualizar_panelControl()
 	
 	if not tablero.casilla_segura():
 		matar_robot("Por entrar a una casilla no segura")
+		en_ejecución = false
 		return
 
 	var casilla = tablero.get_casilla_actual()
@@ -153,19 +162,20 @@ func ejecutar_movimiento_robot (accion:String, token:int) -> void:
 		if tablero.es_solucion(id_obj):
 			if tablero.solucion_ordenada() and !tablero.esta_objetivo_en_orden(id_obj):
 				matar_robot("Por llegar a un objetivo solución en el orden incorrecto")
+				en_ejecución = false
 				return
 			tablero.objetivo_alcanzado(id_obj)
-			objetivo_alcanzado(tablero.get_ultimo_objetivo_alcanzado())
+			await objetivo_alcanzado(tablero.get_ultimo_objetivo_alcanzado())
 			salida_mensaje("objetivo alcanzado")	
 		else:
 			matar_robot("Por llegar a un objetivo erróneo")
+			en_ejecución = false
 			return
 	if tablero.nivel_completado():
-		await get_tree().process_frame
 		nivel_completado()
+		en_ejecución = false
 		return
-	await get_tree().create_timer(tiempo_espera).timeout
-
+	en_ejecución = false
 func nivel_completado() -> void:
 	token_cancelacion += 1  	# Invalida cualquier ejecución anterior
 	robot_en_movimiento = false

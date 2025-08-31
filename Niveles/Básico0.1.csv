@@ -1,5 +1,5 @@
 ﻿Tipo;Tutorial;;;;;;;;;
-Nombre;Bloque Avanzar;;;;;;;;;
+Nombre;Varios Avanzar;;;;;;;;;
 Nivel;0;;;;;;;;;
 TamCuadricula;4;;;;;;;;;
 PosRobot;0;1;;;;;;;;
@@ -19,7 +19,7 @@ Azul;Azul;Azul;Azul;;;;;;;
 Negro;Negro;Negro;Negro;;;;;;;
 Negro;Negro;Negro;Negro;;;;;;;
 Descripcion;;;;;;;;;;
-El robot da un paso hacia donde mira. Usa AVANZAR para moverte a la siguiente casilla. Primero mira luego avanza. Avanzar es caminar un paso seguro.;;;;;;;;;;
+El robot da un paso hacia donde mira. Usa AVANZAR para moverte a la siguiente casilla. Primero mira luego avanza.   Avanzar es caminar un paso seguro.;;;;;;;;;;
 Descripcion_corta;;;;;;;;;;
 Utiliza el BLOQUE AVANZAR para llegar a la meta;;;;;;;;;;
 Página_glosario;Avanzar;;;;;;;;;

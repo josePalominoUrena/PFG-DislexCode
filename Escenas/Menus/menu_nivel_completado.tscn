@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://otxdecco04un"]
+[gd_scene load_steps=9 format=3 uid="uid://otxdecco04un"]
 
 [ext_resource type="Script" path="res://Scripts/ScriptsMenus/menu_nivel_completado.gd" id="1_xtgs7"]
 [ext_resource type="Texture2D" uid="uid://c7r1j77y56wjc" path="res://Assets/Menus/Menu_victoria/menu_victoria_fondo.png" id="2_7tl8l"]
-[ext_resource type="Texture2D" uid="uid://rrh82tggfsu8" path="res://Assets/PanelDeControl/boton_empezar/boton_empezar_down.png" id="2_ecvyy"]
 [ext_resource type="FontFile" uid="uid://ctddf6t7nx61x" path="res://Assets/Fuentes/minecraft-five-bold.otf" id="3_d61og"]
 [ext_resource type="Texture2D" uid="uid://ilrcus3ww5op" path="res://Assets/Menus/Menu_victoria/reiniciar.png" id="4_gcfch"]
 [ext_resource type="Texture2D" uid="uid://bj6jllar7s72" path="res://Assets/Robot/SpriteRobot1_victoria.png" id="5_1ojlu"]
@@ -70,7 +69,6 @@ offset_right = 577.0
 offset_bottom = 589.0
 scale = Vector2(0.1, 0.1)
 texture_normal = ExtResource("4_gcfch")
-texture_pressed = ExtResource("2_ecvyy")
 
 [node name="SiguienteNivel" type="TextureButton" parent="Panel"]
 custom_minimum_size = Vector2(45, 45)

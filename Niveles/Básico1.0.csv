@@ -1,0 +1,26 @@
+﻿Tipo;Tutorial;;;;;;;;;
+Nombre;Bloque Girar;;;;;;;;;
+Nivel;1;;;;;;;;;
+TamCuadricula;3;;;;;;;;;
+PosRobot;0;0;;;;;;;;
+DireccionRobot;derecha;;;;;;arriba;abajo;izquierda;derecha
+NumObjetivos;1;;;;;;;;;
+texto;meta;1;1;;;;;;;
+SoluciónOrdenada;0;;;;;;;;;
+NumeroDeSoluciones;1;;;;;;;;;
+meta;;;;;;;;;;
+BloquesUsables;2;;;;;;;;;
+avanzar;;;;;;;;;;
+girar;;;;;;;;;;
+ColoresSeguros;2;;;;;;;;;
+Azul;;;;;;;;;;
+Blanco;;;;;;;;;;
+ColoresCasillas;0;;;;;;;;;
+Azul;Azul;Azul;;;;;;;;
+Azul;Blanco;Azul;;;;;;;;
+Azul;Azul;Azul;;;;;;;;
+Descripcion;;;;;;;;;;
+El robot cambia de dirección sin moverse. Puedes GIRAR a la derecha o a la izquierda. Primero GIRA. luego AVANZA. ;;;;;;;;;;
+Descripcion_corta;;;;;;;;;;
+Usa GIRAR para  llegar a la meta;;;;;;;;;;
+Página_glosario;Girar;;;;;;;;;
