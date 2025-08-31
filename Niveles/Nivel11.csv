@@ -5,8 +5,8 @@ TamCuadricula;5;;;;;;;;;
 PosRobot;3;3;;;;;;;;
 DireccionRobot;derecha;;;;;;arriba;abajo;izquierda;derecha
 NumObjetivos;2;;;;;;;;;
-imagen;perro.png;3;0;;;;;;;
-imagen;pato.png;0;3;;;;;;;
+imagen;Animales/perro1.png;3;0;;;;;;;
+imagen;Animales/pato.png;0;3;;;;;;;
 SoluciónOrdenada;0;;;;;;;;;
 NumeroDeSoluciones;1;;;;;;;;;
 pato.png;;;;;;;;;;

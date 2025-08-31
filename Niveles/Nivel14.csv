@@ -1,5 +1,5 @@
 ﻿Tipo;Bonus;;;;;;;;;
-Nombre;Nivel dificil;;;;;;;;;
+Nombre;Mientras con Si No;;;;;;;;;
 Nivel;14;;;;;;;;;
 TamCuadricula;5;;;;;;;;;
 PosRobot;0;2;;;;;;;;
@@ -27,7 +27,7 @@ Azul;Azul;Rojo;Azul;Azul;Azul;;;;;
 Rojo;Rojo;Rojo;Rojo;Rojo;Rojo;;;;;
 Rojo;Rojo;Rojo;Rojo;Rojo;Rojo;;;;;
 Descripcion;;;;;;;;;;
-Usa MIENTRAS para repetir y SI NO para avanzar solo cuando no haya rojo delante. Si hay rojo gira;;;;;;;;;;
+Usa MIENTRAS para repetir. Gira a la derecha cuando tengas negro delante, gira a la izquierda cuando tengas rojo delante;;;;;;;;;;
 Descripcion_corta;;;;;;;;;;
-Usa MIENTRAS para repetir y SI NO para avanzar solo cuando no haya rojo delante. Si hay rojo gira;;;;;;;;;;
+Usa MIENTRAS para repetir y SI NO para saber cuando girar.;;;;;;;;;;
 Página_glosario;NULL;;;;;;;;;
