@@ -14,7 +14,7 @@ extends Control
 var GestorNivel:         GestorDeNiveles         = GestorDeNiveles.new()
 var token_cancelacion:int = 0
 var robot_en_movimiento:bool = false
-var tiempo_espera = 0.0
+var tiempo_espera = 1.0
 var en_ejecución:bool = false
 
 func _ready() -> void:
@@ -41,6 +41,7 @@ func objetivo_alcanzado(obj:Objetivo) -> void:
 	panelControl.objetivo_alcanzado(obj)
 
 func cambiar_velocidad(tiempo:float, vel:float) -> void:
+	tiempo_espera = tiempo
 	ZonaConstruccion.modificar_velocidad(tiempo)
 	tablero.cambiar_velocidad_robot(vel)
 
@@ -142,7 +143,6 @@ func ejecutar_movimiento_robot (accion:String, token:int) -> void:
 			if tablero.nivel_completado():
 				await get_tree().process_frame
 				nivel_completado()
-				en_ejecución = false
 				return
 			#Si no se ha completado el nivel y nos hemos quedado sin movimientos el jugador ha perdido
 			if !tablero.nivel_completado():
@@ -154,7 +154,6 @@ func ejecutar_movimiento_robot (accion:String, token:int) -> void:
 	
 	if not tablero.casilla_segura():
 		matar_robot("Por entrar a una casilla no segura")
-		en_ejecución = false
 		return
 
 	var casilla = tablero.get_casilla_actual()
@@ -163,18 +162,16 @@ func ejecutar_movimiento_robot (accion:String, token:int) -> void:
 		if tablero.es_solucion(id_obj):
 			if tablero.solucion_ordenada() and !tablero.esta_objetivo_en_orden(id_obj):
 				matar_robot("Por llegar a un objetivo solución en el orden incorrecto")
-				en_ejecución = false
 				return
 			tablero.objetivo_alcanzado(id_obj)
 			await objetivo_alcanzado(tablero.get_ultimo_objetivo_alcanzado())
 			salida_mensaje("objetivo alcanzado")	
 		else:
 			matar_robot("Por llegar a un objetivo erróneo")
-			en_ejecución = false
+
 			return
 	if tablero.nivel_completado():
 		nivel_completado()
-		en_ejecución = false
 		return
 	en_ejecución = false
 func nivel_completado() -> void:
@@ -184,7 +181,10 @@ func nivel_completado() -> void:
 	
 	salida_mensaje("ENHORABUENA: Nivel completado")	
 	await get_tree().process_frame
+	
 	menuNivelCompletado.mostrar_menu("¡Nivel Completado!")
+	await get_tree().create_timer(tiempo_espera).timeout
+	en_ejecución = false
 	
 func matar_robot(mensaje: String) -> void:
 	if not tablero.nivel_completado():
@@ -193,6 +193,8 @@ func matar_robot(mensaje: String) -> void:
 		robot_en_movimiento = false
 		#print(mensaje)
 		salida_mensaje("NIVEL FALLIDO: " + mensaje)
+		await get_tree().create_timer(tiempo_espera).timeout
+		en_ejecución = false
 
 func get_objetivos() -> Array:
 	# Si tablero es null, intentar inicializarlo
