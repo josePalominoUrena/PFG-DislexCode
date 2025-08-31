@@ -5,10 +5,10 @@ TamCuadricula;3;;;;;;;;;
 PosRobot;0;1;;;;;;;;
 DireccionRobot;derecha;;;;;;arriba;abajo;izquierda;derecha
 NumObjetivos;1;;;;;;;;;
-texto;Meta;1;1;;;;;;;
+texto;meta;1;1;;;;;;;
 SoluciónOrdenada;0;;;;;;;;;
 NumeroDeSoluciones;1;;;;;;;;;
-Meta;;;;;;;;;;
+meta;;;;;;;;;;
 BloquesUsables;1;;;;;;;;;
 avanzar;;;;;;;;;;
 ColoresSeguros;1;;;;;;;;;

@@ -7,8 +7,8 @@
 script = ExtResource("1_ma1w0")
 
 [node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 59.0
+offset_bottom = 28.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -19,6 +19,7 @@ theme_override_fonts/font = ExtResource("2_i0udc")
 theme_override_font_sizes/font_size = 13
 text = "gdhj"
 horizontal_alignment = 1
+vertical_alignment = 1
 uppercase = true
 
 [node name="TextureRect" type="TextureRect" parent="."]

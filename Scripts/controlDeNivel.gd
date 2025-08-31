@@ -89,6 +89,7 @@ func cargar_opciones_nivel() -> void:
 func cargar_nivel(nuevo_nivel:Nivel) -> void:
 	token_cancelacion += 1  	# Invalida cualquier ejecución anterior
 	GestorNivel.registrar_niveles()
+	glosario.hide_book()
 	#Si estamos cargando un nuevo nivel
 	if nuevo_nivel != null:
 		ZonaConstruccion.limpiar_bloques()

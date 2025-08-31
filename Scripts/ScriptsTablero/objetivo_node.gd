@@ -96,13 +96,21 @@ func mostrar_objetivo():
 
 func calcular_tamaño_fuente(longitud_texto: int) -> int:
 	# Tamaños de fuente según rangos de longitud
-	if longitud_texto <= 2:
-		return 19  # Texto corto = fuente grande
+	if longitud_texto <= 1:
+		return 24  # Texto corto = fuente grande
+	elif longitud_texto <= 2:
+		return 22  # Texto medio = fuente media
 	elif longitud_texto <= 3:
-		return 17  # Texto medio = fuente media
+		return 20  # Texto medio = fuente media
 	elif longitud_texto <= 4:
 		return 15  # Texto largo = fuente pequeña
 	elif longitud_texto <= 5:
 		return 13  # Texto largo = fuente pequeña
+	elif longitud_texto <= 7:
+		return 11  # Texto largo = fuente pequeña
+	elif longitud_texto <= 9:
+		return 9  # Texto largo = fuente pequeña
+	elif longitud_texto <= 11:
+		return 7  # Texto largo = fuente pequeña
 	else:
-		return 11  # Texto muy largo = fuente muy pequeña
+		return 5  # Texto muy largo = fuente muy pequeña
