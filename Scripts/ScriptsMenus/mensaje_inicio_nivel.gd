@@ -63,12 +63,13 @@ func calcular_tamaño_fuente(longitud_texto: int) -> int:
 	else:
 		return 11  
 	
+var drag_offset := Vector2.ZERO
+
 func _gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			drag_iniciado = true
-			print ("seleccionado")
-				
+			drag_offset = global_position - get_global_mouse_position()			
 		if not event.pressed:
 			if drag_iniciado:
 				# Si había un drag activo, notificar que se soltó el botón
@@ -76,4 +77,4 @@ func _gui_input(event):
 
 func _process(_delta: float) -> void:
 	if drag_iniciado:
-		self.position = get_global_mouse_position()				
+		self.position = get_global_mouse_position()	+ drag_offset			
